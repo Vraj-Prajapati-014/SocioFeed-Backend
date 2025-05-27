@@ -1,0 +1,11 @@
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:16:54.403Z"}
+{"level":"error","message":"Error: Invalid or expired token, Stack: Error: Invalid or expired token\n    at activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:77:11)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:31:20)","timestamp":"2025-05-27T12:32:32.479Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:33:09.596Z"}
+{"level":"info","message":"Activation email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T12:33:17.070Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:39:17.343Z"}
+{"level":"info","message":"Activation email sent to adityamakadiya01@gmail.com","timestamp":"2025-05-27T12:40:15.160Z"}
+{"level":"info","message":"Activation email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T12:45:04.578Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:49:01.457Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:49:35.391Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:00.433Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:09.767Z"}

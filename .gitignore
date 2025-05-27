@@ -3,3 +3,6 @@ dist
 build
 coverage
 .husky/_
+/generated/prisma
+.env
+

@@ -23,8 +23,19 @@
   },
   "homepage": "https://github.com/Vraj-Prajapati-014/SocioFeed-Backend#readme",
   "dependencies": {
+    "@prisma/client": "^6.8.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "envalid": "^8.0.0",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^7.0.3",
+    "nodemon": "^3.1.10",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
@@ -35,7 +46,8 @@
     "globals": "^16.2.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "prisma": "^6.8.2"
   },
   "lint-staged": {
     "**/*.{js,jsx}": [
