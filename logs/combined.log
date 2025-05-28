@@ -9,3 +9,142 @@
 {"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:49:35.391Z"}
 {"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:00.433Z"}
 {"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:09.767Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:23.354Z"}
+{"level":"info","message":"Activation email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T16:05:56.225Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:07:46.741Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:13:26.438Z"}
+{"level":"error","message":"Error: undefined, Stack: undefined","timestamp":"2025-05-27T16:28:01.890Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:32:06.255Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:56:09.687Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:26:29.202Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:26:46.454Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:27:19.031Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:27:37.713Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:29:48.400Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:30:17.501Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:32:16.964Z"}
+{"level":"info","message":"Password reset email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T17:35:22.339Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:38:43.199Z"}
+{"level":"info","message":"Activation email sent to 21cs052@charusat.edu.in","timestamp":"2025-05-28T04:28:30.790Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:08:32.221Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:34:25.921Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:35:45.388Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:35:55.596Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:40:03.589Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:40:29.288Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:40:46.542Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:41:15.620Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:41:55.505Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:44:38.001Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:52:54.985Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:01:50.418Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:03:36.139Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:04.712Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:08.833Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:35.825Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:47.811Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:11:47.860Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:12:25.348Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:12:25.517Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:50:37.739Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:50:37.931Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:53:26.883Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:53:27.039Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:58:32.445Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:58:32.640Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:02:24.372Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:02:24.493Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:03:28.479Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:03:28.552Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:10:43.910Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:10:43.992Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:12:15.251Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:12:15.324Z"}
+{"details":["Password must include uppercase, lowercase, number, and special character"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T07:12:18.117Z","url":"/register"}
+{"details":["Password must include uppercase, lowercase, number, and special character"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T07:12:31.872Z","url":"/register"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:16:53.586Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:16:53.715Z"}
+{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T07:17:13.197Z","to":"21cs052@charusat.edu.in","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-28T07:17:13.198Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-28T07:17:13.199Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:19:25.110Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:19:25.203Z"}
+{"level":"info","message":"Account activated","timestamp":"2025-05-28T08:19:39.705Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"level":"info","message":"Account activation attempted","timestamp":"2025-05-28T08:19:39.705Z","token":"9d10ad12-ebf1-4ed1-b58b-c471b516322a"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-28T08:20:11.196Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-28T08:20:11.196Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-28T08:20:11.197Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:37:25.086Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:37:25.156Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:37:45.448Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:37:45.503Z"}
+{"level":"info","message":"Email sent","subject":"Reset Your SocioFeed Password","timestamp":"2025-05-28T08:38:14.610Z","to":"21cs052@charusat.edu.in","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset email sent","timestamp":"2025-05-28T08:38:14.611Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset requested","timestamp":"2025-05-28T08:38:14.611Z"}
+{"details":["Confirm password is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T08:39:27.262Z","url":"/reset-password"}
+{"details":["Confirm password is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T08:39:54.623Z","url":"/reset-password"}
+{"level":"info","message":"Password reset successful","timestamp":"2025-05-28T08:40:00.359Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
+{"level":"info","message":"Password reset attempted","timestamp":"2025-05-28T08:40:00.359Z","token":"a4886a8a-01c7-4290-b13e-7b97db402a4a"}
+{"level":"error","message":"Request error Bad control character in string literal in JSON at position 57 (line 2 column 56)","method":"POST","stack":"SyntaxError: Bad control character in string literal in JSON at position 57 (line 2 column 56)\n    at JSON.parse (<anonymous>)\n    at parse (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\types\\json.js:77:19)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\read.js:123:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)\n    at invokeCallback (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:238:16)\n    at done (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:507:28)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)","status":400,"timestamp":"2025-05-28T08:43:46.721Z","url":"/api/auth/logout","userId":"unauthenticated"}
+{"error":"invalid signature","level":"error","message":"JWT verification failed","timestamp":"2025-05-28T08:43:55.827Z"}
+{"level":"error","message":"JWT verification failed: Invalid JWT token","timestamp":"2025-05-28T08:43:55.829Z"}
+{"error":"invalid signature","level":"error","message":"JWT verification failed","timestamp":"2025-05-28T08:44:09.436Z"}
+{"level":"error","message":"JWT verification failed: Invalid JWT token","timestamp":"2025-05-28T08:44:09.436Z"}
+{"error":"invalid signature","level":"error","message":"JWT verification failed","timestamp":"2025-05-28T08:45:01.571Z"}
+{"level":"error","message":"JWT verification failed: Invalid JWT token","timestamp":"2025-05-28T08:45:01.572Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:51:38.928Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:51:39.112Z"}
+{"level":"info","message":"Refresh token invalidated","timestamp":"2025-05-28T08:51:42.215Z","token":"9dc35387-1cc5-4e7e-ab3f-217762ddc2bd"}
+{"level":"info","message":"User logged out","timestamp":"2025-05-28T08:51:42.216Z"}
+{"level":"info","message":"User logged out","timestamp":"2025-05-28T08:51:42.216Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:31:53.616Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:31:53.694Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:32:40.489Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:32:40.549Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:33:15.012Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:33:15.071Z"}
+{"email":"21cs052@charusat.edu.in","level":"warn","message":"User already exists","timestamp":"2025-05-28T09:33:29.721Z","username":"vraj11"}
+{"email":"21cs052@charusat.edu.in","error":"Username already taken","level":"error","message":"Registration failed","timestamp":"2025-05-28T09:33:29.722Z"}
+{"level":"error","message":"Request error Username already taken","method":"POST","stack":"Error: Username already taken\n    at registerUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:33:29)\n    at async register (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:18:20)","status":400,"timestamp":"2025-05-28T09:33:29.723Z","url":"/auth/register","userId":"unauthenticated"}
+{"level":"warn","message":"Invalid or expired activation token","timestamp":"2025-05-28T09:33:33.522Z","token":"9d10ad12-ebf1-4ed1-b58b-c471b516322a"}
+{"error":"Invalid or expired token","level":"error","message":"Activation failed","timestamp":"2025-05-28T09:33:33.523Z"}
+{"level":"error","message":"Request error Invalid or expired token","method":"POST","stack":"Error: Invalid or expired token\n    at activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:104:25)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:52:20)","status":400,"timestamp":"2025-05-28T09:33:33.524Z","url":"/auth/activate","userId":"unauthenticated"}
+{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T09:34:03.763Z","to":"21cs052@charusat.edu.in","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-28T09:34:03.764Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-28T09:34:03.764Z"}
+{"level":"info","message":"Account activated","timestamp":"2025-05-28T09:34:34.537Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"level":"info","message":"Account activation attempted","timestamp":"2025-05-28T09:34:34.538Z","token":"f82e4cd1-fd90-4e6b-8845-8dc5bbe23e59"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-28T09:34:39.427Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:34:39.428Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:34:39.428Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"error":"option maxAge is invalid","level":"error","message":"Login failed","timestamp":"2025-05-28T09:34:39.428Z","usernameOrEmail":"vraj11"}
+{"level":"error","message":"Request error option maxAge is invalid","method":"POST","stack":"TypeError: option maxAge is invalid\n    at Object.serialize (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\cookie\\index.js:209:13)\n    at res.cookie (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\express\\lib\\response.js:777:36)\n    at login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:32:9)","status":500,"timestamp":"2025-05-28T09:34:39.429Z","url":"/auth/login","userId":"unauthenticated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:38:44.196Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:38:44.271Z"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-28T09:38:47.336Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:38:47.337Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:38:47.337Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"level":"info","message":"Email sent","subject":"Reset Your SocioFeed Password","timestamp":"2025-05-28T09:39:14.055Z","to":"21cs052@charusat.edu.in","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset email sent","timestamp":"2025-05-28T09:39:14.056Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset requested","timestamp":"2025-05-28T09:39:14.057Z"}
+{"level":"warn","message":"Invalid or expired reset token","timestamp":"2025-05-28T09:39:19.003Z","token":"a4886a8a-01c7-4290-b13e-7b97db402a4a"}
+{"error":"Invalid or expired token","level":"error","message":"Password reset failed","timestamp":"2025-05-28T09:39:19.005Z"}
+{"level":"error","message":"Request error Invalid or expired token","method":"POST","stack":"Error: Invalid or expired token\n    at resetPassword (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:184:25)\n    at async reset (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:76:20)","status":400,"timestamp":"2025-05-28T09:39:19.007Z","url":"/auth/reset-password","userId":"unauthenticated"}
+{"level":"info","message":"Password reset successful","timestamp":"2025-05-28T09:40:15.082Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
+{"level":"info","message":"Password reset attempted","timestamp":"2025-05-28T09:40:15.082Z","token":"a2b96a88-3489-4cb4-99e1-3b716ddb3f96"}
+{"level":"info","message":"Refresh token invalidated","timestamp":"2025-05-28T09:41:06.649Z","token":"adeaf2c6-1e8e-4c10-b4a7-8e4359293c46"}
+{"level":"info","message":"User logged out","timestamp":"2025-05-28T09:41:06.649Z"}
+{"level":"info","message":"User logged out","timestamp":"2025-05-28T09:41:06.649Z","userId":"unknown"}
+{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T09:41:34.677Z","to":"21cs052@charusat.edu.in","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-28T09:41:34.677Z","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-28T09:41:34.677Z"}
+{"level":"error","message":"Request error Expected double-quoted property name in JSON at position 40 (line 3 column 1)","method":"POST","stack":"SyntaxError: Expected double-quoted property name in JSON at position 40 (line 3 column 1)\n    at JSON.parse (<anonymous>)\n    at parse (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\types\\json.js:77:19)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\read.js:123:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)\n    at invokeCallback (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:238:16)\n    at done (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:507:28)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)","status":400,"timestamp":"2025-05-28T09:43:10.939Z","url":"/api/auth/resend-activation","userId":"unauthenticated"}
+{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T09:43:21.319Z","to":"21cs052@charusat.edu.in","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"Activation email resent","timestamp":"2025-05-28T09:43:21.320Z","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
+{"email":"21cs052@charusat.edu.in","level":"info","message":"Activation resend requested","timestamp":"2025-05-28T09:43:21.320Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:48:20.523Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:48:20.789Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:48:34.616Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:48:34.779Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:48:42.321Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:48:42.374Z"}

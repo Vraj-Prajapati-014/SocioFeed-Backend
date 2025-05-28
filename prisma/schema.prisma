@@ -15,144 +15,339 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(uuid()) @db.Uuid
-  username      String    @unique @db.VarChar(50)
-  email         String    @unique @db.VarChar(255)
-  password      String    @db.VarChar(255)
-  bio           String?   @db.Text
-  avatarUrl     String?   @db.VarChar(255)
-  isActive      Boolean   @default(false)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  posts         Post[]
-  comments      Comment[]
-  likes         Like[]
-  savedPosts    SavedPost[]
-  sentMessages  Message[] @relation("SentMessages")
-  receivedMessages Message[] @relation("ReceivedMessages")
-  followers     Follow[]  @relation("Follower")
-  following     Follow[]  @relation("Following")
-  resetTokens   PasswordResetToken[]
+  id               String         @id @default(uuid()) @db.Uuid
+  username         String         @unique @db.VarChar(50)
+  email            String         @unique @db.VarChar(255)
+  password         String         @db.VarChar(255)
+  bio              String?        @db.Text
+  avatarUrl        String?        @db.VarChar(255)
+  isActive         Boolean        @default(false)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  posts            Post[]
+  comments         Comment[]
+  likes            Like[]
+  commentLikes     CommentLike[]
+  savedPosts       SavedPost[]
+  sentMessages     Message[]      @relation("SentMessages")
+  receivedMessages Message[]      @relation("ReceivedMessages")
+  followers        Follow[]       @relation("Follower")
+  following        Follow[]       @relation("Following")
+  activities       Activity[]
+  resetTokens      PasswordResetToken[]
   activationTokens ActivationToken[]
-
+  refreshTokens    RefreshToken[]
   @@index([username])
   @@index([email])
 }
 
 model Post {
-  id            String    @id @default(uuid()) @db.Uuid
-  content       String?   @db.Text
-  userId        String    @db.Uuid
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id            String       @id @default(uuid()) @db.Uuid
+  content       String       @db.Text // Non-nullable for consistency
+  userId        String       @db.Uuid
+  user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
   images        PostImage[]
   comments      Comment[]
   likes         Like[]
   savedPosts    SavedPost[]
-
+  activities    Activity[]
   @@index([userId])
   @@index([createdAt])
 }
 
 model PostImage {
-  id            String    @id @default(uuid()) @db.Uuid
-  postId        String    @db.Uuid
-  post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
-  imageUrl      String    @db.VarChar(255)
-  createdAt     DateTime  @default(now())
-
+  id        String   @id @default(uuid()) @db.Uuid
+  postId    String   @db.Uuid
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  imageUrl  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
   @@index([postId])
 }
 
 model Comment {
-  id            String    @id @default(uuid()) @db.Uuid
-  content       String    @db.Text
-  userId        String    @db.Uuid
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  postId        String    @db.Uuid
-  post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
+  id            String       @id @default(uuid()) @db.Uuid
+  content       String       @db.VarChar(1000)
+  userId        String       @db.Uuid
+  user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId        String       @db.Uuid
+  post          Post         @relation(fields: [postId], references: [id], onDelete: Cascade)
+  parentId      String?      @db.Uuid
+  parent        Comment?     @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies       Comment[]    @relation("CommentReplies")
+  commentLikes  CommentLike[]
+  activities    Activity[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
   @@index([postId])
   @@index([userId])
+  @@index([parentId])
   @@index([createdAt])
 }
 
 model Like {
-  id            String    @id @default(uuid()) @db.Uuid
-  userId        String    @db.Uuid
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  postId        String    @db.Uuid
-  post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
-  createdAt     DateTime  @default(now())
-
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    String   @db.Uuid
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
   @@unique([userId, postId])
   @@index([postId])
   @@index([userId])
 }
 
-model SavedPost {
-  id            String    @id @default(uuid()) @db.Uuid
-  userId        String    @db.Uuid
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  postId        String    @db.Uuid
-  post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
-  createdAt     DateTime  @default(now())
+model CommentLike {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  commentId String   @db.Uuid
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  @@unique([userId, commentId])
+  @@index([commentId])
+  @@index([userId])
+}
 
+model SavedPost {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId    String   @db.Uuid
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
   @@unique([userId, postId])
   @@index([userId])
   @@index([postId])
 }
 
 model Follow {
-  id            String    @id @default(uuid()) @db.Uuid
-  followerId    String    @db.Uuid
-  follower      User      @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
-  followingId   String    @db.Uuid
-  following     User      @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
-  createdAt     DateTime  @default(now())
-
+  id          String   @id @default(uuid()) @db.Uuid
+  followerId  String   @db.Uuid
+  follower    User     @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
+  followingId String   @db.Uuid
+  following   User     @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
   @@unique([followerId, followingId])
   @@index([followerId])
   @@index([followingId])
 }
 
 model Message {
-  id            String    @id @default(uuid()) @db.Uuid
-  content       String    @db.Text
-  senderId      String    @db.Uuid
-  sender        User      @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
-  receiverId    String    @db.Uuid
-  receiver      User      @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
-  createdAt     DateTime  @default(now())
-
+  id         String   @id @default(uuid()) @db.Uuid
+  content    String   @db.Text
+  senderId   String   @db.Uuid
+  sender     User     @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiverId String   @db.Uuid
+  receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
   @@index([senderId])
   @@index([receiverId])
   @@index([createdAt])
 }
 
-model PasswordResetToken {
-  id            String    @id @default(uuid()) @db.Uuid
-  token         String    @unique @db.VarChar(255)
-  userId        String    @db.Uuid
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  expiresAt     DateTime
-  createdAt     DateTime  @default(now())
+model Activity {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   @db.VarChar(50) // e.g., LIKE_POST, LIKE_COMMENT, CREATE_POST, CREATE_COMMENT
+  postId    String?  @db.Uuid
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  commentId String?  @db.Uuid
+  comment   Comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  @@index([userId])
+  @@index([postId])
+  @@index([commentId])
+  @@index([createdAt])
+}
 
+model PasswordResetToken {
+  id        String   @id @default(uuid()) @db.Uuid
+  token     String   @unique @db.VarChar(255)
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
   @@index([userId])
   @@index([token])
 }
 
 model ActivationToken {
-  id            String    @id @default(uuid()) @db.Uuid
-  token         String    @unique @db.VarChar(255)
-  userId        String    @db.Uuid
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  expiresAt     DateTime
-  createdAt     DateTime  @default(now())
-
+  id        String   @id @default(uuid()) @db.Uuid
+  token     String   @unique @db.VarChar(255)
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
   @@index([userId])
   @@index([token])
 }
+
+model RefreshToken {
+  id        String   @id @default(uuid()) @db.Uuid
+  token     String   @unique @db.VarChar(255)
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@index([userId])
+  @@index([token])
+}
+
+
+// model User {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   username      String    @unique @db.VarChar(50)
+//   email         String    @unique @db.VarChar(255)
+//   password      String    @db.VarChar(255)
+//   bio           String?   @db.Text
+//   avatarUrl     String?   @db.VarChar(255)
+//   isActive      Boolean   @default(false)
+//   createdAt     DateTime  @default(now())
+//   updatedAt     DateTime  @updatedAt
+//   posts         Post[]
+//   comments      Comment[]
+//   likes         Like[]
+//   savedPosts    SavedPost[]
+//   sentMessages  Message[] @relation("SentMessages")
+//   receivedMessages Message[] @relation("ReceivedMessages")
+//   followers     Follow[]  @relation("Follower")
+//   following     Follow[]  @relation("Following")
+//   resetTokens   PasswordResetToken[]
+//   activationTokens ActivationToken[]
+//   refreshTokens RefreshToken[]
+
+//   @@index([username])
+//   @@index([email])
+// }
+
+// model Post {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   content       String?   @db.Text
+//   userId        String    @db.Uuid
+//   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   createdAt     DateTime  @default(now())
+//   updatedAt     DateTime  @updatedAt
+//   images        PostImage[]
+//   comments      Comment[]
+//   likes         Like[]
+//   savedPosts    SavedPost[]
+
+//   @@index([userId])
+//   @@index([createdAt])
+// }
+
+// model PostImage {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   postId        String    @db.Uuid
+//   post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   imageUrl      String    @db.VarChar(255)
+//   createdAt     DateTime  @default(now())
+
+//   @@index([postId])
+// }
+
+// model Comment {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   content       String    @db.Text
+//   userId        String    @db.Uuid
+//   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   postId        String    @db.Uuid
+//   post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   createdAt     DateTime  @default(now())
+//   updatedAt     DateTime  @updatedAt
+
+//   @@index([postId])
+//   @@index([userId])
+//   @@index([createdAt])
+// }
+
+// model Like {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   userId        String    @db.Uuid
+//   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   postId        String    @db.Uuid
+//   post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   createdAt     DateTime  @default(now())
+
+//   @@unique([userId, postId])
+//   @@index([postId])
+//   @@index([userId])
+// }
+
+// model SavedPost {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   userId        String    @db.Uuid
+//   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   postId        String    @db.Uuid
+//   post          Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+//   createdAt     DateTime  @default(now())
+
+//   @@unique([userId, postId])
+//   @@index([userId])
+//   @@index([postId])
+// }
+
+// model Follow {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   followerId    String    @db.Uuid
+//   follower      User      @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
+//   followingId   String    @db.Uuid
+//   following     User      @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
+//   createdAt     DateTime  @default(now())
+
+//   @@unique([followerId, followingId])
+//   @@index([followerId])
+//   @@index([followingId])
+// }
+
+// model Message {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   content       String    @db.Text
+//   senderId      String    @db.Uuid
+//   sender        User      @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+//   receiverId    String    @db.Uuid
+//   receiver      User      @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+//   createdAt     DateTime  @default(now())
+
+//   @@index([senderId])
+//   @@index([receiverId])
+//   @@index([createdAt])
+// }
+
+// model PasswordResetToken {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   token         String    @unique @db.VarChar(255)
+//   userId        String    @db.Uuid
+//   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   expiresAt     DateTime
+//   createdAt     DateTime  @default(now())
+
+//   @@index([userId])
+//   @@index([token])
+// }
+
+// model ActivationToken {
+//   id            String    @id @default(uuid()) @db.Uuid
+//   token         String    @unique @db.VarChar(255)
+//   userId        String    @db.Uuid
+//   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   expiresAt     DateTime
+//   createdAt     DateTime  @default(now())
+
+//   @@index([userId])
+//   @@index([token])
+// }
+
+// model RefreshToken {
+//   id        String   @id @default(uuid()) @db.Uuid
+//   token     String   @unique @db.VarChar(255)
+//   userId    String   @db.Uuid
+//   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   expiresAt DateTime
+//   createdAt DateTime @default(now())
+//   @@index([userId])
+//   @@index([token])
+// }

@@ -4,29 +4,53 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   generateJwtToken,
   generateRefreshToken,
-  // verifyRefreshToken,
+  verifyRefreshToken,
   invalidateRefreshToken,
 } from '../utils/jwt.js';
-import { sendActivationEmail, sendPasswordResetEmail } from './emailService.js';
+import {
+  sendActivationEmail,
+  sendPasswordResetEmail,
+} from '../services/emailService.js';
 import { AUTH_CONSTANTS } from '../constants/auth.js';
 import { ERROR_MESSAGES } from '../constants/errors.js';
-// import logger from '../config/logger.js';
+import logger from '../config/logger.js';
 
+// Register new user
 export const registerUser = async ({ username, email, password }) => {
   const existingUser = await prisma.user.findFirst({
     where: { OR: [{ username }, { email }] },
+    include: { activationTokens: true },
   });
 
   if (existingUser) {
-    if (existingUser.username === username) {
-      throw new Error(ERROR_MESSAGES.USERNAME_ALREADY_EXISTS);
+    const hasValidToken = existingUser.activationTokens.some(
+      token => token.expiresAt > new Date()
+    );
+    if (!existingUser.isActive && !hasValidToken) {
+      await prisma.activationToken.deleteMany({
+        where: { userId: existingUser.id },
+      });
+      await prisma.user.delete({ where: { id: existingUser.id } });
+      logger.info('Deleted unactivated user for re-registration', {
+        email,
+        username,
+      });
+    } else {
+      logger.warn('User already exists', { username, email });
+      if (existingUser.username === username) {
+        throw Object.assign(new Error(ERROR_MESSAGES.USERNAME_ALREADY_EXISTS), {
+          status: 400,
+        });
+      }
+      throw Object.assign(new Error(ERROR_MESSAGES.EMAIL_ALREADY_EXISTS), {
+        status: 400,
+      });
     }
-    throw new Error(ERROR_MESSAGES.EMAIL_ALREADY_EXISTS);
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await prisma.user.create({
-    data: { username, email, password: hashedPassword },
+    data: { username, email, password: hashedPassword, isActive: false },
   });
 
   const token = uuidv4();
@@ -39,32 +63,45 @@ export const registerUser = async ({ username, email, password }) => {
   });
 
   await sendActivationEmail(user, token);
+  logger.info('User registered', { userId: user.id, email });
   return {
     message:
       'Registration successful, please check your email to activate your account',
   };
 };
 
+// Login user
 export const loginUser = async ({ usernameOrEmail, password }) => {
   const user = await prisma.user.findFirst({
     where: { OR: [{ username: usernameOrEmail }, { email: usernameOrEmail }] },
   });
 
   if (!user) {
-    throw new Error(ERROR_MESSAGES.USER_NOT_FOUND);
+    logger.warn('User not found', { usernameOrEmail });
+    throw Object.assign(new Error(ERROR_MESSAGES.USER_NOT_FOUND), {
+      status: 404,
+    });
   }
 
   if (!user.isActive) {
-    throw new Error(ERROR_MESSAGES.ACCOUNT_NOT_ACTIVE);
+    logger.warn('Account not active', { userId: user.id });
+    throw Object.assign(new Error(ERROR_MESSAGES.ACCOUNT_NOT_ACTIVE), {
+      status: 403,
+      action: 'resend_activation',
+    });
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
-    throw new Error(ERROR_MESSAGES.INVALID_CREDENTIALS);
+    logger.warn('Invalid password', { userId: user.id });
+    throw Object.assign(new Error(ERROR_MESSAGES.INVALID_CREDENTIALS), {
+      status: 401,
+    });
   }
 
   const token = generateJwtToken(user);
   const refreshToken = await generateRefreshToken(user);
+  logger.info('User logged in', { userId: user.id });
   return {
     token,
     refreshToken,
@@ -72,6 +109,7 @@ export const loginUser = async ({ usernameOrEmail, password }) => {
   };
 };
 
+// Activate account
 export const activateAccount = async token => {
   const activationToken = await prisma.activationToken.findUnique({
     where: { token },
@@ -79,7 +117,10 @@ export const activateAccount = async token => {
   });
 
   if (!activationToken || activationToken.expiresAt < new Date()) {
-    throw new Error(ERROR_MESSAGES.INVALID_TOKEN);
+    logger.warn('Invalid or expired activation token', { token });
+    throw Object.assign(new Error(ERROR_MESSAGES.INVALID_TOKEN), {
+      status: 400,
+    });
   }
 
   await prisma.user.update({
@@ -88,13 +129,58 @@ export const activateAccount = async token => {
   });
 
   await prisma.activationToken.delete({ where: { token } });
+  logger.info('Account activated', { userId: activationToken.userId });
   return { message: 'Account activated successfully' };
 };
 
+// Resend activation email
+export const resendActivation = async email => {
+  const user = await prisma.user.findUnique({
+    where: { email },
+  });
+
+  if (!user) {
+    logger.warn('User not found for activation resend', { email });
+    throw Object.assign(new Error(ERROR_MESSAGES.USER_NOT_FOUND), {
+      status: 404,
+    });
+  }
+
+  if (user.isActive) {
+    logger.warn('Account already active', { email });
+    throw Object.assign(new Error(ERROR_MESSAGES.ACCOUNT_ALREADY_ACTIVE), {
+      status: 400,
+    });
+  }
+
+  // Delete all existing activation tokens
+  await prisma.activationToken.deleteMany({
+    where: { userId: user.id },
+  });
+
+  // Create new token
+  const token = uuidv4();
+  await prisma.activationToken.create({
+    data: {
+      token,
+      userId: user.id,
+      expiresAt: new Date(Date.now() + AUTH_CONSTANTS.ACTIVATION_TOKEN_EXPIRY),
+    },
+  });
+
+  await sendActivationEmail(user, token);
+  logger.info('Activation email resent', { userId: user.id, email });
+  return { message: 'Activation email resent successfully' };
+};
+
+// Request password reset
 export const forgotPassword = async email => {
   const user = await prisma.user.findUnique({ where: { email } });
   if (!user) {
-    throw new Error(ERROR_MESSAGES.USER_NOT_FOUND);
+    logger.warn('User not found', { email });
+    throw Object.assign(new Error(ERROR_MESSAGES.USER_NOT_FOUND), {
+      status: 404,
+    });
   }
 
   const token = uuidv4();
@@ -109,9 +195,11 @@ export const forgotPassword = async email => {
   });
 
   await sendPasswordResetEmail(user, token);
+  logger.info('Password reset email sent', { userId: user.id, email });
   return { message: 'Password reset link sent to your email' };
 };
 
+// Reset password
 export const resetPassword = async (token, password) => {
   const resetToken = await prisma.passwordResetToken.findUnique({
     where: { token },
@@ -119,7 +207,10 @@ export const resetPassword = async (token, password) => {
   });
 
   if (!resetToken || resetToken.expiresAt < new Date()) {
-    throw new Error(ERROR_MESSAGES.INVALID_TOKEN);
+    logger.warn('Invalid or expired reset token', { token });
+    throw Object.assign(new Error(ERROR_MESSAGES.INVALID_TOKEN), {
+      status: 400,
+    });
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -129,10 +220,46 @@ export const resetPassword = async (token, password) => {
   });
 
   await prisma.passwordResetToken.delete({ where: { token } });
+  logger.info('Password reset successful', { userId: resetToken.userId });
   return { message: 'Password reset successfully' };
 };
 
+// Logout user
 export const logoutUser = async refreshToken => {
-  await invalidateRefreshToken(refreshToken);
+  if (refreshToken) {
+    await invalidateRefreshToken(refreshToken);
+  }
+  logger.info('User logged out');
   return { message: 'Logged out successfully' };
+};
+
+// Refresh JWT
+export const refreshToken = async refreshToken => {
+  const tokenData = await verifyRefreshToken(refreshToken);
+  if (!tokenData) {
+    logger.warn('Invalid or expired refresh token', { refreshToken });
+    throw Object.assign(new Error(ERROR_MESSAGES.INVALID_TOKEN), {
+      status: 401,
+    });
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { id: tokenData.userId },
+  });
+
+  if (!user) {
+    logger.warn('User not found for refresh token', {
+      userId: tokenData.userId,
+    });
+    throw Object.assign(new Error(ERROR_MESSAGES.USER_NOT_FOUND), {
+      status: 404,
+    });
+  }
+
+  const token = generateJwtToken(user);
+  logger.info('New JWT generated', { userId: user.id });
+  return {
+    token,
+    user: { id: user.id, username: user.username, email: user.email },
+  };
 };
