@@ -36,7 +36,6 @@ export const forgotPasswordSchema = Yup.object({
 });
 
 export const resetPasswordSchema = Yup.object({
-  token: Yup.string().required('Token is required'),
   password: Yup.string()
     .min(
       AUTH_CONSTANTS.MIN_PASSWORD_LENGTH,
@@ -52,9 +51,9 @@ export const resetPasswordSchema = Yup.object({
     .required('Confirm password is required'),
 });
 
-export const activateSchema = Yup.object({
-  token: Yup.string().required('Token is required'),
-});
+// export const activateSchema = Yup.object({
+//   token: Yup.string().required('Token is required'),
+// });
 
 export const resendActivationSchema = Yup.object({
   email: Yup.string()

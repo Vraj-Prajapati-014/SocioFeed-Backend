@@ -235,10 +235,17 @@ export const logoutUser = async refreshToken => {
 
 // Refresh JWT
 export const refreshToken = async refreshToken => {
+  if (!refreshToken) {
+    logger.warn('No refresh token provided');
+    throw Object.assign(new Error(ERROR_MESSAGES?.INVALID_TOKEN), {
+      status: 401,
+    });
+  }
+
   const tokenData = await verifyRefreshToken(refreshToken);
   if (!tokenData) {
     logger.warn('Invalid or expired refresh token', { refreshToken });
-    throw Object.assign(new Error(ERROR_MESSAGES.INVALID_TOKEN), {
+    throw Object.assign(new Error(ERROR_MESSAGES?.INVALID_TOKEN), {
       status: 401,
     });
   }
@@ -251,15 +258,17 @@ export const refreshToken = async refreshToken => {
     logger.warn('User not found for refresh token', {
       userId: tokenData.userId,
     });
-    throw Object.assign(new Error(ERROR_MESSAGES.USER_NOT_FOUND), {
+    throw Object.assign(new Error(ERROR_MESSAGES?.USER_NOT_FOUND), {
       status: 404,
     });
   }
 
   const token = generateJwtToken(user);
-  logger.info('New JWT generated', { userId: user.id });
+  const newRefreshToken = await generateRefreshToken(user); // Generate a new refresh token
+  logger.info('New JWT and refresh token generated', { userId: user.id });
   return {
     token,
+    refreshToken: newRefreshToken,
     user: { id: user.id, username: user.username, email: user.email },
   };
 };

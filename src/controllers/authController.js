@@ -1,15 +1,18 @@
+import env from '../config/env.js';
+import logger from '../config/logger.js';
 import {
-  registerUser,
-  loginUser,
   activateAccount,
   forgotPassword,
-  resetPassword,
+  loginUser,
   logoutUser,
+  registerUser,
   // refreshToken,
   resendActivation,
+  resetPassword,
 } from '../services/authService.js';
-import logger from '../config/logger.js';
-import env from '../config/env.js';
+// import jwt from 'jsonwebtoken';
+import prisma from '../config/database.js';
+// import {verifyJwtToken} from '../utils/jwt.js';
 import { AUTH_CONSTANTS } from '../constants/auth.js';
 
 // Register new user
@@ -55,8 +58,12 @@ export const login = async (req, res, next) => {
 // Activate account
 export const activate = async (req, res, next) => {
   try {
-    const result = await activateAccount(req.body.token);
-    logger.info('Account activation attempted', { token: req.body.token });
+    const token = req.params.token; // Read token from URL parameter
+    if (!token) {
+      throw new Error('Activation token is required');
+    }
+    const result = await activateAccount(token);
+    logger.info('Account activation attempted', { token });
     res.json(result);
   } catch (error) {
     logger.error('Activation failed', { error: error.message });
@@ -82,7 +89,11 @@ export const forgot = async (req, res, next) => {
 // Reset password
 export const reset = async (req, res, next) => {
   try {
-    const result = await resetPassword(req.body.token, req.body.password);
+    const result = await resetPassword(
+      req.params.token,
+      req.body.password,
+      req.body.confirmPassword
+    );
     logger.info('Password reset attempted', { token: req.body.token });
     res.json(result);
   } catch (error) {
@@ -110,22 +121,35 @@ export const logout = async (req, res, next) => {
 };
 
 // Refresh JWT
-export const refresh = async (req, res, next) => {
+export const refresh = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
-    const { token, user } = await refreshToken(refreshToken);
+    const {
+      token,
+      refreshToken: newRefreshToken,
+      user,
+    } = await refreshToken(refreshToken);
     logger.info('Token refreshed', { userId: user.id });
     res.cookie('jwt', token, {
       httpOnly: true,
       secure: env.NODE_ENV === 'production',
+      sameSite: 'strict', // Ensure SameSite
       maxAge: AUTH_CONSTANTS.JWT_TOKEN_EXPIRY,
     });
-    res.json({ user });
+    res.cookie('refreshToken', newRefreshToken, {
+      httpOnly: true,
+      secure: env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: AUTH_CONSTANTS.REFRESH_TOKEN_EXPIRY,
+    });
+    res.json({ message: 'Token refreshed', user });
   } catch (error) {
     logger.error('Token refresh failed', { error: error.message });
     res.clearCookie('jwt');
     res.clearCookie('refreshToken');
-    next(error);
+    res
+      .status(error.status || 401)
+      .json({ message: error.message || 'Unauthorized' });
   }
 };
 
@@ -141,5 +165,21 @@ export const resend = async (req, res, next) => {
       error: error.message,
     });
     next(error);
+  }
+};
+
+export const getMe = async (req, res) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.user.id },
+      select: { id: true, username: true, email: true },
+    });
+    if (!user) {
+      throw Object.assign(new Error('User not found'), { status: 404 });
+    }
+    res.json({ user });
+  } catch (error) {
+    logger.error('Get me failed', { error: error.message });
+    res.status(error.status || 500).json({ message: error.message });
   }
 };

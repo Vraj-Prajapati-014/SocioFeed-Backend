@@ -10,7 +10,14 @@ dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // Specify the exact frontend origin
+    credentials: true, // Allow credentials (cookies) to be sent
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  })
+);
 app.use(express.json());
 app.use('/api', routes);
 app.use(errorMiddleware);
