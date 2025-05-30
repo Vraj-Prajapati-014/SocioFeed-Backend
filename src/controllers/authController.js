@@ -120,10 +120,12 @@ export const logout = async (req, res, next) => {
   }
 };
 
-// Refresh JWT
 export const refresh = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
+    if (!refreshToken) {
+      throw new Error('No refresh token provided');
+    }
     const {
       token,
       refreshToken: newRefreshToken,
@@ -133,7 +135,7 @@ export const refresh = async (req, res) => {
     res.cookie('jwt', token, {
       httpOnly: true,
       secure: env.NODE_ENV === 'production',
-      sameSite: 'strict', // Ensure SameSite
+      sameSite: 'strict',
       maxAge: AUTH_CONSTANTS.JWT_TOKEN_EXPIRY,
     });
     res.cookie('refreshToken', newRefreshToken, {

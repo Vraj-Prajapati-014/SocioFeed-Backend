@@ -32,6 +32,10 @@ const env = cleanEnv(
       default: 'debug',
       desc: 'Logging level (error, warn, info, debug)',
     }),
+    CLOUDINARY_CLOUD_NAME: str({ desc: 'cloudinary cloud name' }),
+    CLOUDINARY_API_KEY: str({ desc: 'cloudinary API Key' }),
+    CLOUDINARY_API_SECRET: str({ desc: 'cloudinary api secreat' }),
+    CLOUDINARY_UPLOAD_PRESET: str({ desc: 'cloudinary upload preset' }),
   },
   {
     strict: true,

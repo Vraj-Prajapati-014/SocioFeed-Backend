@@ -60,8 +60,8 @@ export const updateInfo = async (req, res, next) => {
 // Update avatar
 export const updateAvatar = async (req, res, next) => {
   try {
-    const { avatarUrl } = req.body;
     const userId = req.user.id;
+    const file = req.file; // File uploaded via multer
 
     const profileUser = await prisma.user.findUnique({
       where: { id: userId },
@@ -75,7 +75,7 @@ export const updateAvatar = async (req, res, next) => {
       );
     }
 
-    const result = await updateUserAvatar(userId, avatarUrl);
+    const result = await updateUserAvatar(userId, file);
     res.status(200).json(result);
   } catch (error) {
     logger.error('Update avatar failed', {

@@ -1,6 +1,7 @@
 import prisma from '../config/database.js';
 import logger from '../config/logger.js';
 import { PROFILE_CONSTANTS } from '../constants/profileConstants.js';
+import { cloudinary } from '../config/cloudinary.js';
 
 export const getProfileByUsername = async (username, requestingUserId) => {
   try {
@@ -89,11 +90,39 @@ export const updateUserInfo = async (userId, { username, bio }) => {
   }
 };
 
-export const updateUserAvatar = async (userId, fileUrl) => {
+export const updateUserAvatar = async (userId, file) => {
   try {
+    if (!file) {
+      logger.warn('No file provided for avatar upload', { userId });
+      throw Object.assign(new Error('No file provided'), { status: 400 });
+    }
+
+    // Upload the file to Cloudinary using a buffer
+    const uploadResult = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        {
+          folder: 'profile-pics',
+          upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET,
+          resource_type: 'image',
+        },
+        (error, result) => {
+          if (error) {
+            logger.error('Cloudinary upload failed', { error: error.message });
+            return reject(error);
+          }
+          resolve(result);
+        }
+      );
+      uploadStream.end(file.buffer);
+    });
+
+    const avatarUrl = uploadResult.secure_url;
+    logger.info('Avatar uploaded to Cloudinary', { userId, avatarUrl });
+
+    // Update the user's avatarUrl in the database
     const updatedUser = await prisma.user.update({
       where: { id: userId },
-      data: { avatarUrl: fileUrl },
+      data: { avatarUrl },
       select: {
         id: true,
         avatarUrl: true,

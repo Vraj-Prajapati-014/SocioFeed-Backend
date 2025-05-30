@@ -1,9 +1,9 @@
 import { verifyJwtToken } from '../utils/jwt.js';
-import { ERROR_MESSAGES } from '../constants/errors.js'; // Corrected import
+import { ERROR_MESSAGES } from '../constants/errors.js';
 import logger from '../config/logger.js';
 
 export const authMiddleware = async (req, res, next) => {
-  const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1]; // Check cookie first, then header
+  const token = req.cookies.jwt; // Only check cookie
   if (!token) {
     logger.warn('No token provided', { url: req.url });
     return res.status(401).json({ error: ERROR_MESSAGES.UNAUTHORIZED });

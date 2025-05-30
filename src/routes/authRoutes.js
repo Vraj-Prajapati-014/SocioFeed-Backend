@@ -30,7 +30,7 @@ router.post('/forgot-password', validate(forgotPasswordSchema), forgot);
 router.post('/reset-password/:token', validate(resetPasswordSchema), reset);
 router.post('/logout', logout);
 router.get('/me', authMiddleware, getMe);
-router.post('/refresh', authMiddleware, refresh);
+router.post('/refresh', refresh);
 router.post('/resend-activation', validate(resendActivationSchema), resend);
 
 export default router;

@@ -1,4 +1,5 @@
 import express from 'express';
+import upload from '../utils/fileUpload.js';
 import {
   getProfile,
   updateInfo,
@@ -51,6 +52,14 @@ router.put(
   authMiddleware,
   validate(updateInfoSchema),
   updateInfo
+);
+
+router.put(
+  PROFILE_CONSTANTS.PROFILE_UPDATE_AVATAR,
+  authMiddleware,
+  upload.single('avatar'), // Handle file upload with multer
+  validate(updateAvatarSchema),
+  updateAvatar
 );
 
 router.put(
