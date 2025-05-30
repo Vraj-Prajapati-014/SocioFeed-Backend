@@ -1,62 +1,131 @@
-import * as Yup from 'yup';
+import { body, query } from 'express-validator';
 import { AUTH_CONSTANTS } from '../constants/auth.js';
+import { PROFILE_CONSTANTS } from '../constants/profileConstants.js';
 
-export const registerSchema = Yup.object({
-  username: Yup.string()
-    .matches(AUTH_CONSTANTS.REGEX_USERNAME, 'Username must be alphanumeric')
-    .max(50, 'Username must be at most 50 characters')
-    .required('Username is required'),
-  email: Yup.string()
-    .email('Invalid email format')
-    .required('Email is required'),
-  password: Yup.string()
-    .min(
-      AUTH_CONSTANTS.MIN_PASSWORD_LENGTH,
-      'Password must be at least 8 characters'
-    )
-    .matches(
-      AUTH_CONSTANTS.REGEX_PASSWORD,
+export const registerSchema = [
+  body('username')
+    .matches(AUTH_CONSTANTS.REGEX_USERNAME)
+    .withMessage('Username must be alphanumeric')
+    .isLength({ max: 50 })
+    .withMessage('Username must be at most 50 characters')
+    .notEmpty()
+    .withMessage('Username is required')
+    .trim(),
+  body('email')
+    .isEmail()
+    .withMessage('Invalid email format')
+    .notEmpty()
+    .withMessage('Email is required')
+    .normalizeEmail(),
+  body('password')
+    .isLength({ min: AUTH_CONSTANTS.MIN_PASSWORD_LENGTH })
+    .withMessage('Password must be at least 8 characters')
+    .matches(AUTH_CONSTANTS.REGEX_PASSWORD)
+    .withMessage(
       'Password must include uppercase, lowercase, number, and special character (@#$%^&*!#)'
     )
-    .required('Password is required'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Passwords must match')
-    .required('Confirm password is required'),
-});
+    .notEmpty()
+    .withMessage('Password is required'),
+  body('confirmPassword')
+    .custom((value, { req }) => value === req.body.password)
+    .withMessage('Passwords must match')
+    .notEmpty()
+    .withMessage('Confirm password is required'),
+];
 
-export const loginSchema = Yup.object({
-  usernameOrEmail: Yup.string().required('Username or email is required'),
-  password: Yup.string().required('Password is required'),
-});
+export const loginSchema = [
+  body('usernameOrEmail')
+    .notEmpty()
+    .withMessage('Username or email is required')
+    .trim(),
+  body('password').notEmpty().withMessage('Password is required'),
+];
 
-export const forgotPasswordSchema = Yup.object({
-  email: Yup.string()
-    .email('Invalid email format')
-    .required('Email is required'),
-});
+export const forgotPasswordSchema = [
+  body('email')
+    .isEmail()
+    .withMessage('Invalid email format')
+    .notEmpty()
+    .withMessage('Email is required')
+    .normalizeEmail(),
+];
 
-export const resetPasswordSchema = Yup.object({
-  password: Yup.string()
-    .min(
-      AUTH_CONSTANTS.MIN_PASSWORD_LENGTH,
-      'Password must be at least 8 characters'
-    )
-    .matches(
-      AUTH_CONSTANTS.REGEX_PASSWORD,
+export const resetPasswordSchema = [
+  body('password')
+    .isLength({ min: AUTH_CONSTANTS.MIN_PASSWORD_LENGTH })
+    .withMessage('Password must be at least 8 characters')
+    .matches(AUTH_CONSTANTS.REGEX_PASSWORD)
+    .withMessage(
       'Password must include uppercase, lowercase, number, and special character (@#$%^&*!#)'
     )
-    .required('Password is required'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password')], 'Passwords must match')
-    .required('Confirm password is required'),
-});
+    .notEmpty()
+    .withMessage('Password is required'),
+  body('confirmPassword')
+    .custom((value, { req }) => value === req.body.password)
+    .withMessage('Passwords must match')
+    .notEmpty()
+    .withMessage('Confirm password is required'),
+];
 
-// export const activateSchema = Yup.object({
-//   token: Yup.string().required('Token is required'),
-// });
+export const resendActivationSchema = [
+  body('email')
+    .isEmail()
+    .withMessage('Invalid email format')
+    .notEmpty()
+    .withMessage('Email is required')
+    .normalizeEmail(),
+];
 
-export const resendActivationSchema = Yup.object({
-  email: Yup.string()
-    .email('Invalid email format')
-    .required('Email is required'),
-});
+export const updateInfoSchema = [
+  body('username')
+    .optional()
+    .isLength({ max: PROFILE_CONSTANTS.MAX_USERNAME_LENGTH })
+    .withMessage(
+      `Username must be at most ${PROFILE_CONSTANTS.MAX_USERNAME_LENGTH} characters`
+    )
+    .trim(),
+  body('bio')
+    .optional()
+    .isLength({ max: PROFILE_CONSTANTS.MAX_BIO_LENGTH })
+    .withMessage(
+      `Bio must be at most ${PROFILE_CONSTANTS.MAX_BIO_LENGTH} characters`
+    ),
+];
+
+export const updateAvatarSchema = [
+  body('avatarUrl').optional().isURL().withMessage('Invalid URL'),
+];
+
+export const paginationSchema = [
+  query('page')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('Page must be a positive integer')
+    .toInt(),
+  query('limit')
+    .optional()
+    .isInt({ min: 1, max: PROFILE_CONSTANTS.MAX_LIMIT })
+    .withMessage(`Limit must be between 1 and ${PROFILE_CONSTANTS.MAX_LIMIT}`)
+    .toInt(),
+];
+
+export const searchSchema = [
+  query('query')
+    .isLength({ min: 1 })
+    .withMessage('Search query is required')
+    .isLength({ max: 100 })
+    .withMessage('Search query must be at most 100 characters')
+    .notEmpty()
+    .withMessage('Search query is required')
+    .trim(),
+  query('page')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('Page must be a positive integer')
+    .toInt(),
+  query('limit')
+    .optional()
+    .isInt({ min: 1, max: PROFILE_CONSTANTS.MAX_LIMIT })
+    .withMessage(`Limit must be between 1 and ${PROFILE_CONSTANTS.MAX_LIMIT}`)
+    .toInt(),
+];

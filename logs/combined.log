@@ -1,363 +1,329 @@
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:16:54.403Z"}
-{"level":"error","message":"Error: Invalid or expired token, Stack: Error: Invalid or expired token\n    at activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:77:11)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:31:20)","timestamp":"2025-05-27T12:32:32.479Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:33:09.596Z"}
-{"level":"info","message":"Activation email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T12:33:17.070Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:39:17.343Z"}
-{"level":"info","message":"Activation email sent to adityamakadiya01@gmail.com","timestamp":"2025-05-27T12:40:15.160Z"}
-{"level":"info","message":"Activation email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T12:45:04.578Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:49:01.457Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:49:35.391Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:00.433Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:09.767Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T12:50:23.354Z"}
-{"level":"info","message":"Activation email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T16:05:56.225Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:07:46.741Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:13:26.438Z"}
-{"level":"error","message":"Error: undefined, Stack: undefined","timestamp":"2025-05-27T16:28:01.890Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:32:06.255Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T16:56:09.687Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:26:29.202Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:26:46.454Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:27:19.031Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:27:37.713Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:29:48.400Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:30:17.501Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:32:16.964Z"}
-{"level":"info","message":"Password reset email sent to prajapativraj147@gmail.com","timestamp":"2025-05-27T17:35:22.339Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-27T17:38:43.199Z"}
-{"level":"info","message":"Activation email sent to 21cs052@charusat.edu.in","timestamp":"2025-05-28T04:28:30.790Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:08:32.221Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:34:25.921Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:35:45.388Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:35:55.596Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:40:03.589Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:40:29.288Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:40:46.542Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:41:15.620Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:41:55.505Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:44:38.001Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T05:52:54.985Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:01:50.418Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:03:36.139Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:04.712Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:08.833Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:35.825Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:10:47.811Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:11:47.860Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:12:25.348Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:12:25.517Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:50:37.739Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:50:37.931Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:53:26.883Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:53:27.039Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T06:58:32.445Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T06:58:32.640Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:02:24.372Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:02:24.493Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:03:28.479Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:03:28.552Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:10:43.910Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:10:43.992Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:12:15.251Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:12:15.324Z"}
-{"details":["Password must include uppercase, lowercase, number, and special character"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T07:12:18.117Z","url":"/register"}
-{"details":["Password must include uppercase, lowercase, number, and special character"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T07:12:31.872Z","url":"/register"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T07:16:53.586Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T07:16:53.715Z"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T07:17:13.197Z","to":"21cs052@charusat.edu.in","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-28T07:17:13.198Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-28T07:17:13.199Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:19:25.110Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:19:25.203Z"}
-{"level":"info","message":"Account activated","timestamp":"2025-05-28T08:19:39.705Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"level":"info","message":"Account activation attempted","timestamp":"2025-05-28T08:19:39.705Z","token":"9d10ad12-ebf1-4ed1-b58b-c471b516322a"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-28T08:20:11.196Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-28T08:20:11.196Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-28T08:20:11.197Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:37:25.086Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:37:25.156Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:37:45.448Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:37:45.503Z"}
-{"level":"info","message":"Email sent","subject":"Reset Your SocioFeed Password","timestamp":"2025-05-28T08:38:14.610Z","to":"21cs052@charusat.edu.in","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset email sent","timestamp":"2025-05-28T08:38:14.611Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset requested","timestamp":"2025-05-28T08:38:14.611Z"}
-{"details":["Confirm password is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T08:39:27.262Z","url":"/reset-password"}
-{"details":["Confirm password is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-28T08:39:54.623Z","url":"/reset-password"}
-{"level":"info","message":"Password reset successful","timestamp":"2025-05-28T08:40:00.359Z","userId":"a6a21bef-23ab-4d6c-bf0f-acbaaab2ab63"}
-{"level":"info","message":"Password reset attempted","timestamp":"2025-05-28T08:40:00.359Z","token":"a4886a8a-01c7-4290-b13e-7b97db402a4a"}
-{"level":"error","message":"Request error Bad control character in string literal in JSON at position 57 (line 2 column 56)","method":"POST","stack":"SyntaxError: Bad control character in string literal in JSON at position 57 (line 2 column 56)\n    at JSON.parse (<anonymous>)\n    at parse (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\types\\json.js:77:19)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\read.js:123:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)\n    at invokeCallback (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:238:16)\n    at done (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:507:28)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)","status":400,"timestamp":"2025-05-28T08:43:46.721Z","url":"/api/auth/logout","userId":"unauthenticated"}
-{"error":"invalid signature","level":"error","message":"JWT verification failed","timestamp":"2025-05-28T08:43:55.827Z"}
-{"level":"error","message":"JWT verification failed: Invalid JWT token","timestamp":"2025-05-28T08:43:55.829Z"}
-{"error":"invalid signature","level":"error","message":"JWT verification failed","timestamp":"2025-05-28T08:44:09.436Z"}
-{"level":"error","message":"JWT verification failed: Invalid JWT token","timestamp":"2025-05-28T08:44:09.436Z"}
-{"error":"invalid signature","level":"error","message":"JWT verification failed","timestamp":"2025-05-28T08:45:01.571Z"}
-{"level":"error","message":"JWT verification failed: Invalid JWT token","timestamp":"2025-05-28T08:45:01.572Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T08:51:38.928Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T08:51:39.112Z"}
-{"level":"info","message":"Refresh token invalidated","timestamp":"2025-05-28T08:51:42.215Z","token":"9dc35387-1cc5-4e7e-ab3f-217762ddc2bd"}
-{"level":"info","message":"User logged out","timestamp":"2025-05-28T08:51:42.216Z"}
-{"level":"info","message":"User logged out","timestamp":"2025-05-28T08:51:42.216Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:31:53.616Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:31:53.694Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:32:40.489Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:32:40.549Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:33:15.012Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:33:15.071Z"}
-{"email":"21cs052@charusat.edu.in","level":"warn","message":"User already exists","timestamp":"2025-05-28T09:33:29.721Z","username":"vraj11"}
-{"email":"21cs052@charusat.edu.in","error":"Username already taken","level":"error","message":"Registration failed","timestamp":"2025-05-28T09:33:29.722Z"}
-{"level":"error","message":"Request error Username already taken","method":"POST","stack":"Error: Username already taken\n    at registerUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:33:29)\n    at async register (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:18:20)","status":400,"timestamp":"2025-05-28T09:33:29.723Z","url":"/auth/register","userId":"unauthenticated"}
-{"level":"warn","message":"Invalid or expired activation token","timestamp":"2025-05-28T09:33:33.522Z","token":"9d10ad12-ebf1-4ed1-b58b-c471b516322a"}
-{"error":"Invalid or expired token","level":"error","message":"Activation failed","timestamp":"2025-05-28T09:33:33.523Z"}
-{"level":"error","message":"Request error Invalid or expired token","method":"POST","stack":"Error: Invalid or expired token\n    at activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:104:25)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:52:20)","status":400,"timestamp":"2025-05-28T09:33:33.524Z","url":"/auth/activate","userId":"unauthenticated"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T09:34:03.763Z","to":"21cs052@charusat.edu.in","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-28T09:34:03.764Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-28T09:34:03.764Z"}
-{"level":"info","message":"Account activated","timestamp":"2025-05-28T09:34:34.537Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"level":"info","message":"Account activation attempted","timestamp":"2025-05-28T09:34:34.538Z","token":"f82e4cd1-fd90-4e6b-8845-8dc5bbe23e59"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-28T09:34:39.427Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:34:39.428Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:34:39.428Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"error":"option maxAge is invalid","level":"error","message":"Login failed","timestamp":"2025-05-28T09:34:39.428Z","usernameOrEmail":"vraj11"}
-{"level":"error","message":"Request error option maxAge is invalid","method":"POST","stack":"TypeError: option maxAge is invalid\n    at Object.serialize (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\cookie\\index.js:209:13)\n    at res.cookie (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\express\\lib\\response.js:777:36)\n    at login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:32:9)","status":500,"timestamp":"2025-05-28T09:34:39.429Z","url":"/auth/login","userId":"unauthenticated"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:38:44.196Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:38:44.271Z"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-28T09:38:47.336Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:38:47.337Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-28T09:38:47.337Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"level":"info","message":"Email sent","subject":"Reset Your SocioFeed Password","timestamp":"2025-05-28T09:39:14.055Z","to":"21cs052@charusat.edu.in","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset email sent","timestamp":"2025-05-28T09:39:14.056Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset requested","timestamp":"2025-05-28T09:39:14.057Z"}
-{"level":"warn","message":"Invalid or expired reset token","timestamp":"2025-05-28T09:39:19.003Z","token":"a4886a8a-01c7-4290-b13e-7b97db402a4a"}
-{"error":"Invalid or expired token","level":"error","message":"Password reset failed","timestamp":"2025-05-28T09:39:19.005Z"}
-{"level":"error","message":"Request error Invalid or expired token","method":"POST","stack":"Error: Invalid or expired token\n    at resetPassword (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:184:25)\n    at async reset (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:76:20)","status":400,"timestamp":"2025-05-28T09:39:19.007Z","url":"/auth/reset-password","userId":"unauthenticated"}
-{"level":"info","message":"Password reset successful","timestamp":"2025-05-28T09:40:15.082Z","userId":"a1284eb2-eee1-4daf-9f1f-09f25417e6f1"}
-{"level":"info","message":"Password reset attempted","timestamp":"2025-05-28T09:40:15.082Z","token":"a2b96a88-3489-4cb4-99e1-3b716ddb3f96"}
-{"level":"info","message":"Refresh token invalidated","timestamp":"2025-05-28T09:41:06.649Z","token":"adeaf2c6-1e8e-4c10-b4a7-8e4359293c46"}
-{"level":"info","message":"User logged out","timestamp":"2025-05-28T09:41:06.649Z"}
-{"level":"info","message":"User logged out","timestamp":"2025-05-28T09:41:06.649Z","userId":"unknown"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T09:41:34.677Z","to":"21cs052@charusat.edu.in","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-28T09:41:34.677Z","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-28T09:41:34.677Z"}
-{"level":"error","message":"Request error Expected double-quoted property name in JSON at position 40 (line 3 column 1)","method":"POST","stack":"SyntaxError: Expected double-quoted property name in JSON at position 40 (line 3 column 1)\n    at JSON.parse (<anonymous>)\n    at parse (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\types\\json.js:77:19)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\body-parser\\lib\\read.js:123:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)\n    at invokeCallback (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:238:16)\n    at done (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:507:28)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)","status":400,"timestamp":"2025-05-28T09:43:10.939Z","url":"/api/auth/resend-activation","userId":"unauthenticated"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-28T09:43:21.319Z","to":"21cs052@charusat.edu.in","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Activation email resent","timestamp":"2025-05-28T09:43:21.320Z","userId":"16f35df8-35dc-4de5-9817-e4c1260223f8"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Activation resend requested","timestamp":"2025-05-28T09:43:21.320Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:48:20.523Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:48:20.789Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:48:34.616Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:48:34.779Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:48:42.321Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:48:42.374Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T09:51:07.745Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T09:51:07.821Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-28T17:44:29.500Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-28T17:44:29.587Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T09:41:48.675Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T09:41:48.868Z"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-29T09:42:21.236Z","to":"21cs052@charusat.edu.in","userId":"7e30c27f-5e33-4520-83c6-8514f3ae74e2"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-29T09:42:21.238Z","userId":"7e30c27f-5e33-4520-83c6-8514f3ae74e2"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-29T09:42:21.238Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T09:50:06.817Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T09:50:06.926Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T09:50:10.241Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T09:50:10.318Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T09:50:27.249Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T09:50:27.428Z"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-29T09:53:10.080Z","to":"21cs052@charusat.edu.in","userId":"9efbeeb9-f861-4ee8-b15b-5c60c51bc014"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-29T09:53:10.084Z","userId":"9efbeeb9-f861-4ee8-b15b-5c60c51bc014"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-29T09:53:10.084Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T09:59:06.379Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T09:59:06.462Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:01:07.379Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:01:07.489Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:03:00.116Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:03:00.295Z"}
-{"level":"info","message":"Account activated","timestamp":"2025-05-29T10:16:00.349Z","userId":"9efbeeb9-f861-4ee8-b15b-5c60c51bc014"}
-{"level":"info","message":"Account activation attempted","timestamp":"2025-05-29T10:16:00.361Z","token":"f4382e62-ecc0-412e-8d1e-bf6a0552cd1f"}
-{"error":"\nInvalid `prisma.activationToken.delete()` invocation:\n\n\nAn operation failed because it depends on one or more records that were required but not found. No record was found for a delete.","level":"error","message":"Activation failed","timestamp":"2025-05-29T10:16:00.407Z"}
-{"level":"error","message":"Request error \nInvalid `prisma.activationToken.delete()` invocation:\n\n\nAn operation failed because it depends on one or more records that were required but not found. No record was found for a delete.","method":"POST","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.activationToken.delete()` invocation:\n\n\nAn operation failed because it depends on one or more records that were required but not found. No record was found for a delete.\n    at Zn.handleRequestError (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:124:7459)\n    at Zn.handleAndLogRequestError (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:124:6784)\n    at Zn.request (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:124:6491)\n    at async l (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:133:9778)\n    at async activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:131:3)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:62:20)","status":500,"timestamp":"2025-05-29T10:16:00.411Z","url":"/auth/activate/f4382e62-ecc0-412e-8d1e-bf6a0552cd1f","userId":"unauthenticated"}
-{"level":"warn","message":"User not found","timestamp":"2025-05-29T10:17:20.296Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"error":"User not found","level":"error","message":"Login failed","timestamp":"2025-05-29T10:17:20.297Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"level":"error","message":"Request error User not found","method":"POST","stack":"Error: User not found\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:81:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:33:43)","status":404,"timestamp":"2025-05-29T10:17:20.298Z","url":"/auth/login","userId":"unauthenticated"}
-{"email":"21cs052@charusat.edu.in","level":"warn","message":"User not found","timestamp":"2025-05-29T10:17:35.346Z"}
-{"email":"21cs052@charusat.edu.in","error":"User not found","level":"error","message":"Password reset request failed","timestamp":"2025-05-29T10:17:35.347Z"}
-{"level":"error","message":"Request error User not found","method":"POST","stack":"Error: User not found\n    at forgotPassword (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:181:25)\n    at async forgot (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:74:20)","status":404,"timestamp":"2025-05-29T10:17:35.348Z","url":"/auth/forgot-password","userId":"unauthenticated"}
-{"email":"21cs052@charusat.edu.in","level":"warn","message":"User not found","timestamp":"2025-05-29T10:17:52.100Z"}
-{"email":"21cs052@charusat.edu.in","error":"User not found","level":"error","message":"Password reset request failed","timestamp":"2025-05-29T10:17:52.100Z"}
-{"level":"error","message":"Request error User not found","method":"POST","stack":"Error: User not found\n    at forgotPassword (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:181:25)\n    at async forgot (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:74:20)","status":404,"timestamp":"2025-05-29T10:17:52.101Z","url":"/auth/forgot-password","userId":"unauthenticated"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:19:51.648Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:19:51.840Z"}
-{"email":"21cs052@charusat.edu.in","error":"\nInvalid `prisma.user.findUnique()` invocation:\n\n{\n  where: {\n    email: undefined,\n?   id?: String,\n?   username?: String,\n?   AND?: UserWhereInput | UserWhereInput[],\n?   OR?: UserWhereInput[],\n?   NOT?: UserWhereInput | UserWhereInput[],\n?   password?: StringFilter | String,\n?   bio?: StringNullableFilter | String | Null,\n?   avatarUrl?: StringNullableFilter | String | Null,\n?   isActive?: BoolFilter | Boolean,\n?   createdAt?: DateTimeFilter | DateTime,\n?   updatedAt?: DateTimeFilter | DateTime,\n?   posts?: PostListRelationFilter,\n?   comments?: CommentListRelationFilter,\n?   likes?: LikeListRelationFilter,\n?   commentLikes?: CommentLikeListRelationFilter,\n?   savedPosts?: SavedPostListRelationFilter,\n?   sentMessages?: MessageListRelationFilter,\n?   receivedMessages?: MessageListRelationFilter,\n?   followers?: FollowListRelationFilter,\n?   following?: FollowListRelationFilter,\n?   activities?: ActivityListRelationFilter,\n?   resetTokens?: PasswordResetTokenListRelationFilter,\n?   activationTokens?: ActivationTokenListRelationFilter,\n?   refreshTokens?: RefreshTokenListRelationFilter\n  }\n}\n\nArgument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.","level":"error","message":"Password reset request failed","timestamp":"2025-05-29T10:19:54.306Z"}
-{"level":"error","message":"Request error \nInvalid `prisma.user.findUnique()` invocation:\n\n{\n  where: {\n    email: undefined,\n?   id?: String,\n?   username?: String,\n?   AND?: UserWhereInput | UserWhereInput[],\n?   OR?: UserWhereInput[],\n?   NOT?: UserWhereInput | UserWhereInput[],\n?   password?: StringFilter | String,\n?   bio?: StringNullableFilter | String | Null,\n?   avatarUrl?: StringNullableFilter | String | Null,\n?   isActive?: BoolFilter | Boolean,\n?   createdAt?: DateTimeFilter | DateTime,\n?   updatedAt?: DateTimeFilter | DateTime,\n?   posts?: PostListRelationFilter,\n?   comments?: CommentListRelationFilter,\n?   likes?: LikeListRelationFilter,\n?   commentLikes?: CommentLikeListRelationFilter,\n?   savedPosts?: SavedPostListRelationFilter,\n?   sentMessages?: MessageListRelationFilter,\n?   receivedMessages?: MessageListRelationFilter,\n?   followers?: FollowListRelationFilter,\n?   following?: FollowListRelationFilter,\n?   activities?: ActivityListRelationFilter,\n?   resetTokens?: PasswordResetTokenListRelationFilter,\n?   activationTokens?: ActivationTokenListRelationFilter,\n?   refreshTokens?: RefreshTokenListRelationFilter\n  }\n}\n\nArgument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.","method":"POST","stack":"PrismaClientValidationError: \nInvalid `prisma.user.findUnique()` invocation:\n\n{\n  where: {\n    email: undefined,\n?   id?: String,\n?   username?: String,\n?   AND?: UserWhereInput | UserWhereInput[],\n?   OR?: UserWhereInput[],\n?   NOT?: UserWhereInput | UserWhereInput[],\n?   password?: StringFilter | String,\n?   bio?: StringNullableFilter | String | Null,\n?   avatarUrl?: StringNullableFilter | String | Null,\n?   isActive?: BoolFilter | Boolean,\n?   createdAt?: DateTimeFilter | DateTime,\n?   updatedAt?: DateTimeFilter | DateTime,\n?   posts?: PostListRelationFilter,\n?   comments?: CommentListRelationFilter,\n?   likes?: LikeListRelationFilter,\n?   commentLikes?: CommentLikeListRelationFilter,\n?   savedPosts?: SavedPostListRelationFilter,\n?   sentMessages?: MessageListRelationFilter,\n?   receivedMessages?: MessageListRelationFilter,\n?   followers?: FollowListRelationFilter,\n?   following?: FollowListRelationFilter,\n?   activities?: ActivityListRelationFilter,\n?   resetTokens?: PasswordResetTokenListRelationFilter,\n?   activationTokens?: ActivationTokenListRelationFilter,\n?   refreshTokens?: RefreshTokenListRelationFilter\n  }\n}\n\nArgument `where` of type UserWhereUniqueInput needs at least one of `id`, `username` or `email` arguments. Available options are marked with ?.\n    at kn (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:32:1363)\n    at Zn.handleRequestError (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:124:7102)\n    at Zn.handleAndLogRequestError (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:124:6784)\n    at Zn.request (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:124:6491)\n    at async l (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\generated\\prisma\\runtime\\library.js:133:9778)\n    at async forgotPassword (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:178:16)\n    at async forgot (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:74:20)","status":500,"timestamp":"2025-05-29T10:19:54.308Z","url":"/auth/forgot-password","userId":"unauthenticated"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:20:45.082Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:20:45.138Z"}
-{"email":"21cs052@charusat.edu.in","level":"warn","message":"User not found","timestamp":"2025-05-29T10:22:05.465Z"}
-{"email":"21cs052@charusat.edu.in","error":"User not found","level":"error","message":"Password reset request failed","timestamp":"2025-05-29T10:22:05.466Z"}
-{"level":"error","message":"Request error User not found","method":"POST","stack":"Error: User not found\n    at forgotPassword (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:181:25)\n    at async forgot (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:74:20)","status":404,"timestamp":"2025-05-29T10:22:05.467Z","url":"/auth/forgot-password","userId":"unauthenticated"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-29T10:22:56.607Z","to":"21cs052@charusat.edu.in","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-29T10:22:56.608Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-29T10:22:56.608Z"}
-{"level":"info","message":"Account activated","timestamp":"2025-05-29T10:23:21.163Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Account activation attempted","timestamp":"2025-05-29T10:23:21.165Z","token":"b7225f73-2f0a-42df-b3c1-d3c43efd8ca6"}
-{"level":"warn","message":"Invalid or expired activation token","timestamp":"2025-05-29T10:23:21.278Z","token":"b7225f73-2f0a-42df-b3c1-d3c43efd8ca6"}
-{"error":"Invalid or expired token","level":"error","message":"Activation failed","timestamp":"2025-05-29T10:23:21.279Z"}
-{"level":"error","message":"Request error Invalid or expired token","method":"POST","stack":"Error: Invalid or expired token\n    at activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:121:25)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:62:20)","status":400,"timestamp":"2025-05-29T10:23:21.280Z","url":"/auth/activate/b7225f73-2f0a-42df-b3c1-d3c43efd8ca6","userId":"unauthenticated"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T10:23:49.998Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T10:23:49.999Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T10:23:49.999Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Email sent","subject":"Reset Your SocioFeed Password","timestamp":"2025-05-29T10:24:08.486Z","to":"21cs052@charusat.edu.in","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset email sent","timestamp":"2025-05-29T10:24:08.487Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"Password reset requested","timestamp":"2025-05-29T10:24:08.487Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:25:52.770Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:25:52.951Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:26:37.010Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:26:37.072Z"}
-{"details":["Token is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-29T10:26:40.197Z","url":"/reset-password/a186d2e4-17f1-4b34-8abd-1720b2e2dc8e"}
-{"details":["Token is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-29T10:26:47.306Z","url":"/reset-password/a186d2e4-17f1-4b34-8abd-1720b2e2dc8e"}
-{"details":["Token is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-29T10:27:01.955Z","url":"/reset-password/a186d2e4-17f1-4b34-8abd-1720b2e2dc8e"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:31:58.274Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:31:58.441Z"}
-{"details":["Token is required"],"level":"error","message":"Validation error Invalid input provided","method":"POST","timestamp":"2025-05-29T10:32:01.063Z","url":"/reset-password/a186d2e4-17f1-4b34-8abd-1720b2e2dc8e"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:34:30.538Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:34:30.614Z"}
-{"level":"info","message":"Password reset successful","timestamp":"2025-05-29T10:34:36.618Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Password reset attempted","timestamp":"2025-05-29T10:34:36.619Z"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T10:34:48.310Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T10:34:48.311Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T10:34:48.311Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T10:59:22.504Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T10:59:22.596Z"}
-{"level":"warn","message":"Invalid password","timestamp":"2025-05-29T10:59:34.626Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"error":"Invalid username or password","level":"error","message":"Login failed","timestamp":"2025-05-29T10:59:34.627Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"level":"error","message":"Request error Invalid username or password","method":"POST","stack":"Error: Invalid username or password\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:97:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:33:43)","status":401,"timestamp":"2025-05-29T10:59:34.628Z","url":"/auth/login","userId":"unauthenticated"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T10:59:52.454Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T10:59:52.455Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T10:59:52.455Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"warn","message":"Invalid password","timestamp":"2025-05-29T11:00:11.719Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"error":"Invalid username or password","level":"error","message":"Login failed","timestamp":"2025-05-29T11:00:11.720Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"level":"error","message":"Request error Invalid username or password","method":"POST","stack":"Error: Invalid username or password\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:97:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:33:43)","status":401,"timestamp":"2025-05-29T11:00:11.721Z","url":"/auth/login","userId":"unauthenticated"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:00:20.253Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:00:20.254Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:00:20.254Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:02:11.703Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:02:11.705Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:02:11.705Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:02:48.654Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:02:48.655Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:02:48.655Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T11:03:57.516Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T11:03:57.590Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T11:04:31.357Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T11:04:31.422Z"}
-{"level":"warn","message":"Invalid password","timestamp":"2025-05-29T11:04:55.290Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"error":"Invalid username or password","level":"error","message":"Login failed","timestamp":"2025-05-29T11:04:55.291Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"level":"error","message":"Request error Invalid username or password","method":"POST","stack":"Error: Invalid username or password\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:97:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:35:43)","status":401,"timestamp":"2025-05-29T11:04:55.292Z","url":"/auth/login","userId":"unauthenticated"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:04:58.922Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:04:58.923Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:04:58.923Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T11:07:33.508Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T11:07:33.572Z"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:07:48.143Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:07:48.143Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:07:48.144Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:32:12.423Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:32:12.429Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:32:12.429Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:37:14.729Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:37:14.731Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:37:14.732Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T11:41:06.043Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T11:41:06.109Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T11:44:31.925Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T11:44:31.997Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T11:44:48.569Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T11:44:48.631Z"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:45:13.849Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:45:13.850Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:45:13.850Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T11:46:09.345Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T11:46:09.404Z"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T11:57:45.189Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:57:45.192Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T11:57:45.192Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T12:13:26.898Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:13:26.902Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:13:26.903Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T12:22:44.656Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:22:44.658Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:22:44.659Z","userId":"aaf29cbd-7ccf-42cd-bb4f-aabfbb5fd2dd"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:23:42.742Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:23:42.910Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:25:25.660Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:25:25.828Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:25:30.447Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:25:30.617Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:25:56.520Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:25:56.524Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:26:00.147Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:26:00.151Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:26:02.675Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:26:02.677Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:26:18.948Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:26:19.124Z","url":"/me"}
-{"level":"warn","message":"User not found","timestamp":"2025-05-29T12:26:52.293Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"error":"User not found","level":"error","message":"Login failed","timestamp":"2025-05-29T12:26:52.294Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"level":"error","message":"Request error User not found","method":"POST","stack":"Error: User not found\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:81:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:36:43)","status":404,"timestamp":"2025-05-29T12:26:52.298Z","url":"/auth/login","userId":"unauthenticated"}
-{"level":"warn","message":"User not found","timestamp":"2025-05-29T12:26:55.393Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"error":"User not found","level":"error","message":"Login failed","timestamp":"2025-05-29T12:26:55.394Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"level":"error","message":"Request error User not found","method":"POST","stack":"Error: User not found\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:81:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:36:43)","status":404,"timestamp":"2025-05-29T12:26:55.395Z","url":"/auth/login","userId":"unauthenticated"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:27:29.662Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:27:29.856Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:27:33.729Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:27:33.900Z","url":"/me"}
-{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-29T12:27:55.527Z","to":"21cs052@charusat.edu.in","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registered","timestamp":"2025-05-29T12:27:55.528Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"email":"21cs052@charusat.edu.in","level":"info","message":"User registration attempted","timestamp":"2025-05-29T12:27:55.528Z"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:28:17.687Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:28:17.693Z","url":"/me"}
-{"level":"info","message":"Account activated","timestamp":"2025-05-29T12:28:17.830Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"Account activation attempted","timestamp":"2025-05-29T12:28:17.831Z","token":"1fb7e595-d189-4ab4-879e-58fb7944800b"}
-{"level":"warn","message":"Invalid or expired activation token","timestamp":"2025-05-29T12:28:17.883Z","token":"1fb7e595-d189-4ab4-879e-58fb7944800b"}
-{"error":"Invalid or expired token","level":"error","message":"Activation failed","timestamp":"2025-05-29T12:28:17.884Z"}
-{"level":"error","message":"Request error Invalid or expired token","method":"POST","stack":"Error: Invalid or expired token\n    at activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:121:25)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:65:20)","status":400,"timestamp":"2025-05-29T12:28:17.884Z","url":"/auth/activate/1fb7e595-d189-4ab4-879e-58fb7944800b","userId":"unauthenticated"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T12:28:41.827Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:28:41.828Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:28:41.828Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:28:56.161Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:28:56.328Z","url":"/me"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T12:33:59.879Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T12:33:59.956Z"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:34:13.700Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:34:13.858Z","url":"/me"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T12:34:22.604Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:34:22.604Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:34:22.605Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:34:32.578Z","url":"/me"}
-{"level":"warn","message":"No token provided","timestamp":"2025-05-29T12:34:32.745Z","url":"/me"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T12:49:07.411Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T12:49:07.479Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T12:50:08.954Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T12:50:09.020Z"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T12:59:08.911Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:59:08.916Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:59:08.917Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"warn","message":"Invalid password","timestamp":"2025-05-29T12:59:37.517Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"error":"Invalid username or password","level":"error","message":"Login failed","timestamp":"2025-05-29T12:59:37.518Z","usernameOrEmail":"21cs052@charusat.edu.in"}
-{"level":"error","message":"Request error Invalid username or password","method":"POST","stack":"Error: Invalid username or password\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:97:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:36:43)","status":401,"timestamp":"2025-05-29T12:59:37.521Z","url":"/auth/login","userId":"unauthenticated"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T12:59:40.164Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:59:40.164Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T12:59:40.165Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T13:00:06.622Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T13:00:06.623Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T13:00:06.623Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T13:01:03.405Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T13:01:03.406Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"User logged in","timestamp":"2025-05-29T13:01:03.406Z","userId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T16:55:33.493Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T16:55:33.707Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T16:56:33.135Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T16:56:33.251Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T16:56:45.898Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T16:56:45.981Z"}
-{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T16:58:32.109Z"}
-{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T16:58:32.209Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T17:48:52.443Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T17:48:52.560Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T17:50:51.905Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T17:50:51.983Z"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T17:51:29.493Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T17:51:29.653Z","url":"/me"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T17:56:38.364Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T17:56:38.436Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T17:58:35.484Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T17:58:35.560Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:01:56.131Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:01:56.230Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:04:17.743Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:04:17.799Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:06:01.486Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:06:01.543Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:25:40.465Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:25:40.547Z"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:30:38.099Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:30:38.273Z","url":"/me"}
+{"level":"warn","message":"Invalid password","timestamp":"2025-05-29T18:30:56.594Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"error":"Invalid username or password","level":"error","message":"Login failed","timestamp":"2025-05-29T18:30:56.594Z","usernameOrEmail":"prajapativraj147@gmail.com"}
+{"level":"error","message":"Request error Invalid username or password","method":"POST","stack":"Error: Invalid username or password\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:97:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:36:43)","status":401,"timestamp":"2025-05-29T18:30:56.595Z","url":"/auth/login","userId":"unauthenticated"}
+{"level":"warn","message":"Invalid password","timestamp":"2025-05-29T18:31:24.040Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"error":"Invalid username or password","level":"error","message":"Login failed","timestamp":"2025-05-29T18:31:24.041Z","usernameOrEmail":"prajapativraj147@gmail.com"}
+{"level":"error","message":"Request error Invalid username or password","method":"POST","stack":"Error: Invalid username or password\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:97:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:36:43)","status":401,"timestamp":"2025-05-29T18:31:24.042Z","url":"/auth/login","userId":"unauthenticated"}
+{"level":"warn","message":"Invalid password","timestamp":"2025-05-29T18:31:32.410Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"error":"Invalid username or password","level":"error","message":"Login failed","timestamp":"2025-05-29T18:31:32.410Z","usernameOrEmail":"prajapativraj147@gmail.com"}
+{"level":"error","message":"Request error Invalid username or password","method":"POST","stack":"Error: Invalid username or password\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:97:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:36:43)","status":401,"timestamp":"2025-05-29T18:31:32.411Z","url":"/auth/login","userId":"unauthenticated"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:31:41.216Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:31:41.392Z","url":"/me"}
+{"level":"info","message":"Email sent","subject":"Reset Your SocioFeed Password","timestamp":"2025-05-29T18:32:02.342Z","to":"prajapativraj147@gmail.com","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"email":"prajapativraj147@gmail.com","level":"info","message":"Password reset email sent","timestamp":"2025-05-29T18:32:02.343Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"email":"prajapativraj147@gmail.com","level":"info","message":"Password reset requested","timestamp":"2025-05-29T18:32:02.343Z"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:32:20.047Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:32:20.051Z","url":"/me"}
+{"level":"info","message":"Password reset successful","timestamp":"2025-05-29T18:32:35.323Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Password reset attempted","timestamp":"2025-05-29T18:32:35.324Z"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:32:48.999Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-29T18:32:49.187Z","url":"/me"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T18:32:57.473Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-29T18:32:57.474Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-29T18:32:57.474Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:35:12.346Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:35:12.526Z"}
+{"email":"21cs052@charusat.edu.in","level":"warn","message":"Account already active","timestamp":"2025-05-29T18:35:15.730Z"}
+{"email":"21cs052@charusat.edu.in","error":"Account already active","level":"error","message":"Activation resend failed","timestamp":"2025-05-29T18:35:15.731Z"}
+{"level":"error","message":"Request error Account already active","method":"POST","stack":"Error: Account already active\n    at resendActivation (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:151:25)\n    at async resend (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:159:20)","status":400,"timestamp":"2025-05-29T18:35:15.732Z","url":"/auth/resend-activation","userId":"unauthenticated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:38:22.019Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:38:22.188Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:41:49.288Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:41:49.348Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:42:29.180Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:42:29.340Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:42:56.292Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:42:56.355Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:43:45.874Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:43:45.934Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:46:45.375Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:46:45.431Z"}
+{"level":"error","message":"Request error Cannot read properties of undefined (reading 'jwt')","method":"GET","stack":"TypeError: Cannot read properties of undefined (reading 'jwt')\n    at authMiddleware (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/middleware/authMiddleware.js:6:29)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:295:15\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:600:14)\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:610:14)\n    at processParams (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:664:3)","status":500,"timestamp":"2025-05-29T18:47:17.714Z","url":"/api/profile/vraj","userId":"unauthenticated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:48:01.466Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:48:01.640Z"}
+{"error":"Cannot read properties of undefined (reading 'id')","level":"error","message":"Get profile failed","timestamp":"2025-05-29T18:48:04.532Z","username":"vraj"}
+{"level":"error","message":"Request error Cannot read properties of undefined (reading 'id')","method":"GET","stack":"TypeError: Cannot read properties of undefined (reading 'id')\n    at getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:19:67)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:295:15\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:600:14)\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:610:14)\n    at processParams (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:664:3)","status":500,"timestamp":"2025-05-29T18:48:04.534Z","url":"/api/profile/vraj","userId":"unauthenticated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:48:17.691Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:48:17.861Z"}
+{"level":"error","message":"Request error Cannot read properties of undefined (reading 'jwt')","method":"GET","stack":"TypeError: Cannot read properties of undefined (reading 'jwt')\n    at authMiddleware (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/middleware/authMiddleware.js:6:29)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:295:15\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:600:14)\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:610:14)\n    at processParams (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:664:3)","status":500,"timestamp":"2025-05-29T18:50:08.805Z","url":"/api/profile/vraj","userId":"unauthenticated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:53:06.133Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:53:06.217Z"}
+{"error":"invalid token","level":"error","message":"JWT verification failed","timestamp":"2025-05-29T18:53:24.641Z"}
+{"level":"error","message":"JWT verification failed: Invalid JWT token","timestamp":"2025-05-29T18:53:24.642Z","url":"/vraj"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:54:53.644Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:54:53.709Z"}
+{"error":"Cannot read properties of undefined (reading 'id')","level":"error","message":"Get profile failed","timestamp":"2025-05-29T18:54:56.093Z","username":"vraj"}
+{"level":"error","message":"Request error Cannot read properties of undefined (reading 'id')","method":"GET","stack":"TypeError: Cannot read properties of undefined (reading 'id')\n    at getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:19:67)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:295:15\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:600:14)\n    at param (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:610:14)\n    at processParams (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\index.js:664:3)","status":500,"timestamp":"2025-05-29T18:54:56.095Z","url":"/api/profile/vraj","userId":"unauthenticated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-29T18:56:16.158Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-29T18:56:16.250Z"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-29T18:57:11.936Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-29T18:57:11.936Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-29T18:57:11.937Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T04:25:27.199Z","url":"/edit"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-30T04:25:48.284Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T04:25:48.285Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T04:25:48.286Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"error":"prisma is not defined","level":"error","message":"Edit profile failed","timestamp":"2025-05-30T04:25:55.799Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"error","message":"Request error prisma is not defined","method":"PUT","stack":"ReferenceError: prisma is not defined\n    at editProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:34:25)\n    at Layer.handleRequest (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\Users\\vraj\\Desktop\\Bacancy\\Final Project\\SocioFeed-Backend\\node_modules\\router\\lib\\route.js:157:13)\n    at file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/middleware/validateMiddleware.js:7:5\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","status":500,"timestamp":"2025-05-30T04:25:55.803Z","url":"/api/profile/edit","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T04:26:28.375Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T04:26:28.462Z"}
+{"level":"info","message":"Profile updated","timestamp":"2025-05-30T04:26:32.219Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T04:28:28.812Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T04:28:28.975Z","url":"/me"}
+{"followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"info","message":"User followed","timestamp":"2025-05-30T04:28:59.400Z"}
+{"followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"info","message":"User unfollowed","timestamp":"2025-05-30T04:29:29.553Z"}
+{"followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"info","message":"User followed","timestamp":"2025-05-30T04:29:52.536Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:30:41.918Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:30:41.920Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:30:41.921Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:30:41.924Z","url":"/api/profile/search?query=Aditya","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:30:57.233Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:30:57.234Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:30:57.234Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:30:57.235Z","url":"/api/profile/search?Aditya","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:31:01.198Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:31:01.198Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:31:01.199Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:31:01.199Z","url":"/api/profile/search?=Aditya","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:31:06.838Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:31:06.839Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:31:06.839Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:31:06.840Z","url":"/api/profile/search?query=Aditya","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found for followers","timestamp":"2025-05-30T04:31:59.232Z","username":":vraj"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch followers","timestamp":"2025-05-30T04:31:59.233Z","username":":vraj"}
+{"error":"Profile not found","level":"error","message":"Get followers failed","timestamp":"2025-05-30T04:31:59.233Z","username":":vraj"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getFollowers (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:232:27)\n    at async getFollowersList (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:95:23)","status":404,"timestamp":"2025-05-30T04:31:59.235Z","url":"/api/profile/:vraj/followers","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T04:32:57.173Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T04:32:57.281Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:33:02.914Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:33:02.915Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:33:02.916Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:33:02.918Z","url":"/api/profile/search?query=Aditya","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T04:33:09.141Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T04:33:09.210Z"}
+{"level":"warn","message":"Profile not found for followers","timestamp":"2025-05-30T04:33:27.927Z","username":"vraj"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch followers","timestamp":"2025-05-30T04:33:27.928Z","username":"vraj"}
+{"error":"Profile not found","level":"error","message":"Get followers failed","timestamp":"2025-05-30T04:33:27.929Z","username":"vraj"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getFollowers (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:232:27)\n    at async getFollowersList (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:95:23)","status":404,"timestamp":"2025-05-30T04:33:27.931Z","url":"/api/profile/vraj/followers","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"followerCount":1,"level":"info","message":"Fetched followers","timestamp":"2025-05-30T04:34:20.221Z","username":"vraj_updated"}
+{"followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"warn","message":"User already following","timestamp":"2025-05-30T04:34:47.388Z"}
+{"error":"You are already following this user","followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"error","message":"Failed to follow user","timestamp":"2025-05-30T04:34:47.389Z"}
+{"error":"You are already following this user","followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"error","message":"Follow failed","timestamp":"2025-05-30T04:34:47.390Z"}
+{"level":"error","message":"Request error You are already following this user","method":"POST","stack":"Error: You are already following this user\n    at followUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:103:27)\n    at async follow (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:58:20)","status":400,"timestamp":"2025-05-30T04:34:47.392Z","url":"/api/profile/follow/18bfd247-e228-4900-97c6-49d869bb52e6","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"followingCount":0,"level":"info","message":"Fetched following","timestamp":"2025-05-30T04:36:02.420Z","username":"vraj_updated"}
+{"followingCount":0,"level":"info","message":"Fetched following","timestamp":"2025-05-30T04:36:21.339Z","username":"vraj_updated"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:37:44.313Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:37:44.313Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:37:44.314Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:37:44.315Z","url":"/api/profile/search?query=Aditya","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:38:10.846Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:38:10.847Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:38:10.847Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:38:10.848Z","url":"/api/profile/search?query=21CS052","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:38:25.527Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:38:25.527Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:38:25.528Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:38:25.528Z","url":"/api/profile/search?query=21CS052","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"followingCount":0,"level":"info","message":"Fetched following","timestamp":"2025-05-30T04:38:47.742Z","username":"vraj_updated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T04:41:38.379Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T04:41:38.541Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T04:54:56.753Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T04:54:56.907Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T04:55:03.662Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T04:55:03.663Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T04:55:03.665Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T04:55:03.666Z","url":"/api/profile/search?query=21CS052","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T04:55:46.800Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T04:55:46.895Z"}
+{"followerCount":1,"level":"info","message":"Fetched followers","timestamp":"2025-05-30T04:55:54.296Z","username":"vraj_updated"}
+{"followingCount":0,"level":"info","message":"Fetched following","timestamp":"2025-05-30T04:57:38.061Z","username":"vraj_updated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:01:48.466Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:01:48.643Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T05:01:59.417Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T05:01:59.418Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T05:01:59.419Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T05:01:59.421Z","url":"/api/profile/search?query=21CS052","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:03:55.105Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:03:55.186Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T05:04:01.846Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T05:04:01.848Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T05:04:01.849Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T05:04:01.853Z","url":"/api/profile/search?query=21CS052","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:04:41.566Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:04:41.653Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T05:04:44.191Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T05:04:44.192Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T05:04:44.192Z","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:39:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T05:04:44.194Z","url":"/api/profile/search?query=21CS052","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:06:19.365Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:06:19.441Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:06:42.632Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:06:42.718Z"}
+{"details":["Search query is required"],"level":"error","message":"Validation error Invalid input provided","method":"GET","timestamp":"2025-05-30T05:06:44.998Z","url":"/search?query=21CS052"}
+{"details":["Search query is required"],"level":"error","message":"Validation error Invalid input provided","method":"GET","timestamp":"2025-05-30T05:06:52.574Z","url":"/search?query=21CS052"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:08:42.704Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:08:42.821Z"}
+{"details":["Search query is required"],"level":"error","message":"Validation error Invalid input provided","method":"GET","timestamp":"2025-05-30T05:08:46.111Z","url":"/search?query=21CS052"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:15:30.842Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:15:31.056Z"}
+{"level":"info","message":"User search completed","query":"21CS052","resultCount":1,"timestamp":"2025-05-30T05:15:32.857Z"}
+{"followerCount":0,"level":"info","message":"Fetched followers","timestamp":"2025-05-30T05:15:54.998Z","username":"vraj_updated"}
+{"followingCount":0,"level":"info","message":"Fetched following","timestamp":"2025-05-30T05:15:59.181Z","username":"vraj_updated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:25:24.673Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:25:24.871Z"}
+{"followingCount":0,"level":"info","message":"Fetched following","timestamp":"2025-05-30T05:25:43.594Z","username":"vraj_updated"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T05:26:34.568Z","url":"/vraj_updated/followers"}
+{"level":"warn","message":"User not found","timestamp":"2025-05-30T05:26:50.368Z","usernameOrEmail":"vraj"}
+{"error":"User not found","level":"error","message":"Login failed","timestamp":"2025-05-30T05:26:50.370Z","usernameOrEmail":"vraj"}
+{"level":"error","message":"Request error User not found","method":"POST","stack":"Error: User not found\n    at loginUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:81:25)\n    at async login (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:36:43)","status":404,"timestamp":"2025-05-30T05:26:50.373Z","url":"/api/auth/login","userId":"unauthenticated"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-30T05:27:10.398Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T05:27:10.399Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T05:27:10.399Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"followerCount":0,"level":"info","message":"Fetched followers","timestamp":"2025-05-30T05:27:15.897Z","username":"vraj_updated"}
+{"followingCount":0,"level":"info","message":"Fetched following","timestamp":"2025-05-30T05:27:20.632Z","username":"vraj_updated"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:33:01.211Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:33:01.340Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:42:34.794Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:42:34.927Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T05:43:23.230Z","username":"vraj"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T05:43:23.231Z","username":"vraj"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T05:43:23.232Z","username":"vraj"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:37:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T05:43:23.234Z","url":"/api/profile/vraj","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:58:00.260Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:58:00.527Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:58:48.900Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:58:49.077Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T05:59:11.255Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T05:59:11.318Z"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T05:59:18.593Z","username":"vraj"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T05:59:18.594Z","username":"vraj"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T05:59:18.595Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01","username":"vraj"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:36:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T05:59:18.597Z","url":"/api/profile/vraj","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-30T06:00:00.629Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T06:00:00.630Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T06:00:00.631Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User info updated","timestamp":"2025-05-30T06:01:14.397Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T06:02:13.155Z","username":"update-avatar"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T06:02:13.156Z","username":"update-avatar"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T06:02:13.157Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01","username":"update-avatar"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:36:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T06:02:13.158Z","url":"/api/profile/update-avatar","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"User avatar updated","timestamp":"2025-05-30T06:02:33.765Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"warn","message":"User already following","timestamp":"2025-05-30T06:03:31.557Z"}
+{"error":"You are already following this user","followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"error","message":"Failed to follow user","timestamp":"2025-05-30T06:03:31.558Z"}
+{"error":"You are already following this user","followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"error","message":"Follow failed","timestamp":"2025-05-30T06:03:31.558Z"}
+{"level":"error","message":"Request error You are already following this user","method":"POST","stack":"Error: You are already following this user\n    at followUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:125:27)\n    at async follow (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:77:20)","status":400,"timestamp":"2025-05-30T06:03:31.559Z","url":"/api/profile/follow/18bfd247-e228-4900-97c6-49d869bb52e6","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"info","message":"User unfollowed","timestamp":"2025-05-30T06:03:35.962Z"}
+{"followerId":"7547d9e0-d453-4b26-81e8-358a227a9c01","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"info","message":"User followed","timestamp":"2025-05-30T06:03:41.009Z"}
+{"followerCount":1,"level":"info","limit":10,"message":"Fetched followers","page":1,"timestamp":"2025-05-30T06:04:07.612Z","username":"vraj"}
+{"followingCount":0,"level":"info","limit":10,"message":"Fetched following","page":1,"timestamp":"2025-05-30T06:04:22.015Z","username":"vraj"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T06:05:27.128Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T06:05:27.129Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T06:05:27.130Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:36:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T06:05:27.131Z","url":"/api/profile/search?query=21CS052","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"warn","message":"Profile not found","timestamp":"2025-05-30T06:05:36.150Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Failed to fetch profile","timestamp":"2025-05-30T06:05:36.151Z","username":"search"}
+{"error":"Profile not found","level":"error","message":"Get profile failed","timestamp":"2025-05-30T06:05:36.151Z","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01","username":"search"}
+{"level":"error","message":"Request error Profile not found","method":"GET","stack":"Error: Profile not found\n    at getProfileByUsername (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:36:27)\n    at async getProfile (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:18:21)","status":404,"timestamp":"2025-05-30T06:05:36.152Z","url":"/api/profile/search?query=21","userId":"7547d9e0-d453-4b26-81e8-358a227a9c01"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:12:25.160Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:12:25.270Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:12:36.410Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:12:36.573Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:12:51.902Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:12:51.975Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:13:06.674Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:13:06.847Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:13:15.744Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:13:15.813Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"21","resultCount":1,"timestamp":"2025-05-30T06:13:29.132Z"}
+{"followerCount":1,"level":"info","limit":10,"message":"Fetched followers","page":1,"timestamp":"2025-05-30T06:13:44.409Z","username":"vraj"}
+{"followingCount":0,"level":"info","limit":10,"message":"Fetched following","page":1,"timestamp":"2025-05-30T06:13:48.741Z","username":"vraj"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T06:16:15.393Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T06:16:15.524Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T06:16:19.132Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T06:16:19.302Z","url":"/me"}
+{"level":"info","message":"Email sent","subject":"Activate Your SocioFeed Account","timestamp":"2025-05-30T06:16:45.248Z","to":"prajapativraj147@gmail.com","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"email":"prajapativraj147@gmail.com","level":"info","message":"User registered","timestamp":"2025-05-30T06:16:45.249Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"email":"prajapativraj147@gmail.com","level":"info","message":"User registration attempted","timestamp":"2025-05-30T06:16:45.250Z"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T06:16:56.971Z","url":"/me"}
+{"level":"warn","message":"No token provided","timestamp":"2025-05-30T06:16:56.979Z","url":"/me"}
+{"level":"info","message":"Account activated","timestamp":"2025-05-30T06:16:57.134Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","message":"Account activation attempted","timestamp":"2025-05-30T06:16:57.135Z","token":"8af989a2-d201-4f28-9683-78e5e3b82dac"}
+{"level":"warn","message":"Invalid or expired activation token","timestamp":"2025-05-30T06:16:57.227Z","token":"8af989a2-d201-4f28-9683-78e5e3b82dac"}
+{"error":"Invalid or expired token","level":"error","message":"Activation failed","timestamp":"2025-05-30T06:16:57.228Z"}
+{"level":"error","message":"Request error Invalid or expired token","method":"POST","stack":"Error: Invalid or expired token\n    at activateAccount (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/authService.js:121:25)\n    at async activate (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/authController.js:65:20)","status":400,"timestamp":"2025-05-30T06:16:57.230Z","url":"/api/auth/activate/8af989a2-d201-4f28-9683-78e5e3b82dac","userId":"unauthenticated"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-30T06:17:11.565Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T06:17:11.565Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T06:17:11.565Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","message":"Refresh token generated","timestamp":"2025-05-30T06:17:39.724Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T06:17:39.724Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","message":"User logged in","timestamp":"2025-05-30T06:17:39.724Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","message":"User info updated","timestamp":"2025-05-30T06:18:07.965Z","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"followerId":"742933d1-52f1-445a-b70f-0095530faaa1","followingId":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","level":"info","message":"User followed","timestamp":"2025-05-30T06:18:38.616Z"}
+{"followerId":"742933d1-52f1-445a-b70f-0095530faaa1","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"warn","message":"User not following","timestamp":"2025-05-30T06:18:51.946Z"}
+{"error":"You are not following this user","followerId":"742933d1-52f1-445a-b70f-0095530faaa1","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"error","message":"Failed to unfollow user","timestamp":"2025-05-30T06:18:51.947Z"}
+{"error":"You are not following this user","followerId":"742933d1-52f1-445a-b70f-0095530faaa1","followingId":"18bfd247-e228-4900-97c6-49d869bb52e6","level":"error","message":"Unfollow failed","timestamp":"2025-05-30T06:18:51.948Z"}
+{"level":"error","message":"Request error You are not following this user","method":"POST","stack":"Error: You are not following this user\n    at unfollowUser (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/services/profileService.js:166:27)\n    at async unfollow (file:///C:/Users/vraj/Desktop/Bacancy/Final%20Project/SocioFeed-Backend/src/controllers/profileController.js:91:20)","status":400,"timestamp":"2025-05-30T06:18:51.949Z","url":"/api/profile/unfollow/18bfd247-e228-4900-97c6-49d869bb52e6","userId":"742933d1-52f1-445a-b70f-0095530faaa1"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"21","resultCount":1,"timestamp":"2025-05-30T06:18:59.422Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"a","resultCount":1,"timestamp":"2025-05-30T06:19:03.323Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"A","resultCount":1,"timestamp":"2025-05-30T06:19:09.723Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"A","resultCount":1,"timestamp":"2025-05-30T06:19:11.937Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"21","resultCount":1,"timestamp":"2025-05-30T06:19:26.559Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"Adi","resultCount":0,"timestamp":"2025-05-30T06:19:32.010Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"A","resultCount":1,"timestamp":"2025-05-30T06:19:45.350Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"d","resultCount":1,"timestamp":"2025-05-30T06:19:51.824Z"}
+{"followerCount":1,"level":"info","limit":10,"message":"Fetched followers","page":1,"timestamp":"2025-05-30T06:19:59.669Z","username":"vraj"}
+{"followingCount":0,"level":"info","limit":10,"message":"Fetched following","page":1,"timestamp":"2025-05-30T06:20:04.157Z","username":"vraj"}
+{"followerCount":1,"level":"info","limit":10,"message":"Fetched followers","page":1,"timestamp":"2025-05-30T06:20:50.276Z","username":"vraj"}
+{"followingCount":0,"level":"info","limit":10,"message":"Fetched following","page":1,"timestamp":"2025-05-30T06:20:58.168Z","username":"vraj"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"d","resultCount":1,"timestamp":"2025-05-30T06:21:08.144Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"Aditya","resultCount":0,"timestamp":"2025-05-30T06:21:25.424Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:34:39.005Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:34:39.101Z"}
+{"followers":[],"level":"debug","message":"Fetched followers data","timestamp":"2025-05-30T06:34:39.454Z","username":"vraj"}
+{"following":[{"avatarUrl":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","username":"21CS052"}],"level":"debug","message":"Fetched following data","timestamp":"2025-05-30T06:34:43.416Z","username":"vraj"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:38:14.950Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:38:15.064Z"}
+{"allUsers":[{"bio":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","username":"21CS052"},{"bio":"Updated bio for Vraj! yeah","id":"742933d1-52f1-445a-b70f-0095530faaa1","username":"vraj"}],"level":"debug","message":"All active users for search","query":"Aditya","timestamp":"2025-05-30T06:38:34.219Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"Aditya","resultCount":0,"results":[],"timestamp":"2025-05-30T06:38:34.240Z"}
+{"allUsers":[{"bio":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","username":"21CS052"},{"bio":"Updated bio for Vraj! yeah","id":"742933d1-52f1-445a-b70f-0095530faaa1","username":"vraj"}],"level":"debug","message":"All active users for search","query":"Aditya","timestamp":"2025-05-30T06:38:38.768Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"Aditya","resultCount":0,"results":[],"timestamp":"2025-05-30T06:38:38.774Z"}
+{"allUsers":[{"bio":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","username":"21CS052"},{"bio":"Updated bio for Vraj! yeah","id":"742933d1-52f1-445a-b70f-0095530faaa1","username":"vraj"}],"level":"debug","message":"All active users for search","query":"21","timestamp":"2025-05-30T06:39:04.401Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"21","resultCount":1,"results":[{"avatarUrl":null,"following":[{"followerId":"742933d1-52f1-445a-b70f-0095530faaa1"}],"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","isFollowing":true,"username":"21CS052"}],"timestamp":"2025-05-30T06:39:04.414Z"}
+{"allUsers":[{"bio":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","username":"21CS052"},{"bio":"Updated bio for Vraj! yeah","id":"742933d1-52f1-445a-b70f-0095530faaa1","username":"vraj"}],"level":"debug","message":"All active users for search","query":"v","timestamp":"2025-05-30T06:39:10.416Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"v","resultCount":1,"results":[{"avatarUrl":null,"following":[],"id":"742933d1-52f1-445a-b70f-0095530faaa1","isFollowing":false,"username":"vraj"}],"timestamp":"2025-05-30T06:39:10.423Z"}
+{"allUsers":[{"bio":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","username":"21CS052"},{"bio":"Updated bio for Vraj! yeah","id":"742933d1-52f1-445a-b70f-0095530faaa1","username":"vraj"}],"level":"debug","message":"All active users for search","query":"A","timestamp":"2025-05-30T06:39:14.737Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"A","resultCount":1,"results":[{"avatarUrl":null,"following":[],"id":"742933d1-52f1-445a-b70f-0095530faaa1","isFollowing":false,"username":"vraj"}],"timestamp":"2025-05-30T06:39:14.743Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T06:41:39.302Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T06:41:39.588Z"}
+{"allUsers":[{"bio":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","isActive":true,"username":"21CS052"},{"bio":"Updated bio for Vraj! yeah","id":"742933d1-52f1-445a-b70f-0095530faaa1","isActive":true,"username":"vraj"}],"level":"debug","message":"All active users for search","query":"A","timestamp":"2025-05-30T06:41:46.793Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"A","resultCount":1,"results":[{"avatarUrl":null,"following":[],"id":"742933d1-52f1-445a-b70f-0095530faaa1","isFollowing":false,"username":"vraj"}],"timestamp":"2025-05-30T06:41:46.828Z"}
+{"allUsers":[{"bio":null,"id":"47c6acc2-0db4-41eb-b7ca-8b07050f6839","isActive":true,"username":"21CS052"},{"bio":"Updated bio for Vraj! yeah","id":"742933d1-52f1-445a-b70f-0095530faaa1","isActive":true,"username":"vraj"}],"level":"debug","message":"All active users for search","query":"a","timestamp":"2025-05-30T06:44:30.765Z"}
+{"level":"info","limit":10,"message":"User search completed","page":1,"query":"a","resultCount":1,"results":[{"avatarUrl":null,"following":[],"id":"742933d1-52f1-445a-b70f-0095530faaa1","isFollowing":false,"username":"vraj"}],"timestamp":"2025-05-30T06:44:30.827Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T07:18:05.601Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T07:18:05.929Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T07:18:17.981Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T07:18:18.049Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T07:18:32.203Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T07:18:32.290Z"}
+{"level":"info","message":"Server running on port 5000","timestamp":"2025-05-30T07:18:48.998Z"}
+{"level":"info","message":"Connected to database successfully","timestamp":"2025-05-30T07:18:49.174Z"}

@@ -1,13 +1,16 @@
+// src/routes/index.js
+
 import express from 'express';
-import cookieParser from 'cookie-parser';
-import authRoutes from '../routes/authRoutes.js';
-import { errorMiddleware } from '../middleware/errorMiddleware.js';
+import authRoutes from './authRoutes.js';
+import profileRoutes from './profile.js';
+import { PROFILE_CONSTANTS } from '../constants/profileConstants.js';
 
-const app = express();
+const router = express.Router();
 
-app.use(express.json());
-app.use(cookieParser());
-app.use('/auth', authRoutes);
-app.use(errorMiddleware);
+// Mount auth routes under /api/auth
+router.use('/auth', authRoutes);
 
-export default app;
+// Mount profile routes under /api/profile
+router.use(PROFILE_CONSTANTS.PROFILE_BASE_URL, profileRoutes);
+
+export default router;

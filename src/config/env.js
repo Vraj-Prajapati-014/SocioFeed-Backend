@@ -1,6 +1,7 @@
 import { cleanEnv, str, port, url, email } from 'envalid';
 import fs from 'fs';
 import path from 'path';
+import 'dotenv/config';
 
 const envFile = path.join(process.cwd(), '.env');
 if (!fs.existsSync(envFile)) {

@@ -5,11 +5,12 @@ import routes from './src/routes/index.js';
 import { errorMiddleware } from './src/middleware/errorMiddleware.js';
 import logger from './src/config/logger.js';
 import env from './src/config/env.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
 
 const app = express();
-
+app.use(cookieParser());
 app.use(
   cors({
     origin: 'http://localhost:5173', // Specify the exact frontend origin
@@ -19,7 +20,9 @@ app.use(
   })
 );
 app.use(express.json());
+// app.use(`/api/${PROFILE_CONSTANTS.PROFILE_BASE_URL}`, profileRoutes);
 app.use('/api', routes);
+
 app.use(errorMiddleware);
 
 app.listen(env.PORT, () => {
