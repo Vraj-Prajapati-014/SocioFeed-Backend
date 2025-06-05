@@ -17,12 +17,14 @@ export const errorMiddleware = (err, req, res, next) => {
     method: req.method,
     url: req.url,
     userId: req.user?.id || 'unauthenticated',
-    stack: isProduction ? undefined : err.stack, // Hide stack in production
+    stack: isProduction ? undefined : err.stack,
+    action: err.action || undefined, // Hide stack in production
   });
 
   // Send response to client
   res.status(status).json({
     error: message,
+    action: err.action || undefined,
   });
 
   next(); // Pass to next middleware (optional, for compatibility)

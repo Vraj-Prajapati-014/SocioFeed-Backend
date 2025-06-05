@@ -7,12 +7,16 @@ import logger from './src/config/logger.js';
 import env from './src/config/env.js';
 import cookieParser from 'cookie-parser';
 import { configureCloudinary } from './src/config/cloudinary.js';
+import initializeSocket from './src/config/socket.js';
+import { createServer } from 'http';
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` });
 
 configureCloudinary();
 
 const app = express();
+const server = createServer(app);
+initializeSocket(server);
 app.use(cookieParser());
 app.use(
   cors({

@@ -6,7 +6,7 @@ import {
   loginUser,
   logoutUser,
   registerUser,
-  // refreshToken,
+  refreshToken,
   resendActivation,
   resetPassword,
 } from '../services/authService.js';
@@ -122,15 +122,15 @@ export const logout = async (req, res, next) => {
 
 export const refresh = async (req, res) => {
   try {
-    const refreshToken = req.cookies.refreshToken;
-    if (!refreshToken) {
+    const refreshTokenValue = req.cookies.refreshToken;
+    if (!refreshTokenValue) {
       throw new Error('No refresh token provided');
     }
     const {
       token,
       refreshToken: newRefreshToken,
       user,
-    } = await refreshToken(refreshToken);
+    } = await refreshToken(refreshTokenValue);
     logger.info('Token refreshed', { userId: user.id });
     res.cookie('jwt', token, {
       httpOnly: true,

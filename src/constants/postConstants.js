@@ -10,6 +10,10 @@ const POSTS_COMMENTS_DELETE = '/comments/:commentId';
 const POSTS_SAVE = '/:postId/save';
 const POSTS_UNSAVE = '/:postId/save';
 const POSTS_SAVED = '/saved';
+const POSTS_COMMENTS_REPLY = '/:postId/comments/:commentId/reply';
+const POSTS_COMMENTS_LIKE = '/comments/:commentId/like';
+const POSTS_COMMENTS_UNLIKE = '/comments/:commentId/unlike';
+const POSTS_DELETE = '/:postId';
 
 // Error messages
 const ERROR_POST_NOT_FOUND = 'Post not found';
@@ -25,6 +29,9 @@ const ERROR_NOT_SAVED = 'You have not saved this post';
 const ERROR_INVALID_POST_CONTENT = 'Invalid post content';
 const ERROR_INVALID_COMMENT_CONTENT = 'Invalid comment content';
 const ERROR_TOO_MANY_IMAGES = 'Too many images uploaded';
+const ERROR_ALREADY_LIKED_COMMENT = 'You have already liked this comment';
+const ERROR_NOT_LIKED_COMMENT = 'You have not liked this comment';
+// const ERROR_UNAUTHORIZED_POST_DELETE = 'You are not authorized to delete this post';
 
 // Post constraints
 const MAX_IMAGES_PER_POST = 4;
@@ -40,6 +47,7 @@ const MAX_LIMIT = 50;
 const ACTIVITY_TYPE_CREATE_POST = 'CREATE_POST';
 const ACTIVITY_TYPE_LIKE_POST = 'LIKE_POST';
 const ACTIVITY_TYPE_CREATE_COMMENT = 'CREATE_COMMENT';
+const ACTIVITY_TYPE_LIKE_COMMENT = 'LIKE_COMMENT';
 
 export const POSTS_CONSTANTS = {
   POSTS_BASE_URL,
@@ -54,6 +62,9 @@ export const POSTS_CONSTANTS = {
   POSTS_SAVE,
   POSTS_UNSAVE,
   POSTS_SAVED,
+  POSTS_COMMENTS_REPLY,
+  POSTS_COMMENTS_LIKE,
+  POSTS_COMMENTS_UNLIKE,
   ERROR_POST_NOT_FOUND,
   ERROR_ALREADY_LIKED,
   ERROR_NOT_LIKED,
@@ -65,6 +76,8 @@ export const POSTS_CONSTANTS = {
   ERROR_INVALID_POST_CONTENT,
   ERROR_INVALID_COMMENT_CONTENT,
   ERROR_TOO_MANY_IMAGES,
+  ERROR_ALREADY_LIKED_COMMENT,
+  ERROR_NOT_LIKED_COMMENT,
   MAX_IMAGES_PER_POST,
   MAX_CONTENT_LENGTH,
   MAX_COMMENT_LENGTH,
@@ -74,4 +87,6 @@ export const POSTS_CONSTANTS = {
   ACTIVITY_TYPE_CREATE_POST,
   ACTIVITY_TYPE_LIKE_POST,
   ACTIVITY_TYPE_CREATE_COMMENT,
+  ACTIVITY_TYPE_LIKE_COMMENT,
+  POSTS_DELETE,
 };

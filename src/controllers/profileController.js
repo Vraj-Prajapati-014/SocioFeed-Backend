@@ -1,5 +1,5 @@
 import {
-  getProfileByUsername,
+  getProfileById,
   updateUserInfo,
   updateUserAvatar,
   followUser,
@@ -15,13 +15,13 @@ import { PROFILE_CONSTANTS } from '../constants/profileConstants.js';
 // Get user profile by username
 export const getProfile = async (req, res, next) => {
   try {
-    const { username } = req.params;
-    const profile = await getProfileByUsername(username, req.user.id);
+    const { id } = req.params; // Changed from username to id
+    const profile = await getProfileById(id, req.user.id);
     res.status(200).json(profile);
   } catch (error) {
     logger.error('Get profile failed', {
-      username: req.params.username,
-      userId: req.user.id,
+      userId: req.params.id, // Changed from username to userId
+      requestingUserId: req.user.id,
       error: error.message,
     });
     next(error);
@@ -123,12 +123,13 @@ export const unfollow = async (req, res, next) => {
 // Get followers list with pagination
 export const getFollowersList = async (req, res, next) => {
   try {
-    const { username } = req.params;
+    const { id } = req.params;
+    const requestingUserId = req.user.id;
     const { page, limit } = req.query;
     const pageNum = parseInt(page, 10) || PROFILE_CONSTANTS.DEFAULT_PAGE;
     const limitNum = parseInt(limit, 10) || PROFILE_CONSTANTS.DEFAULT_LIMIT;
 
-    const result = await getFollowers(username, pageNum, limitNum);
+    const result = await getFollowers(id, requestingUserId, pageNum, limitNum);
     res.status(200).json(result);
   } catch (error) {
     logger.error('Get followers failed', {
@@ -142,12 +143,12 @@ export const getFollowersList = async (req, res, next) => {
 // Get following list with pagination
 export const getFollowingList = async (req, res, next) => {
   try {
-    const { username } = req.params;
+    const { id } = req.params;
     const { page, limit } = req.query;
     const pageNum = parseInt(page, 10) || PROFILE_CONSTANTS.DEFAULT_PAGE;
     const limitNum = parseInt(limit, 10) || PROFILE_CONSTANTS.DEFAULT_LIMIT;
 
-    const result = await getFollowing(username, pageNum, limitNum);
+    const result = await getFollowing(id, pageNum, limitNum);
     res.status(200).json(result);
   } catch (error) {
     logger.error('Get following failed', {

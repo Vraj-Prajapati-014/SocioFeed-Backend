@@ -3,10 +3,19 @@ import logger from '../config/logger.js';
 import { PROFILE_CONSTANTS } from '../constants/profileConstants.js';
 import { cloudinary } from '../config/cloudinary.js';
 
-export const getProfileByUsername = async (username, requestingUserId) => {
+export const getProfileById = async (userId, requestingUserId) => {
   try {
+    logger.debug('Fetching profile', { userId, requestingUserId });
+
+    if (!requestingUserId) {
+      logger.warn('Invalid requestingUserId', { userId, requestingUserId });
+      throw Object.assign(new Error('Invalid requesting user ID'), {
+        status: 400,
+      });
+    }
+
     const user = await prisma.user.findUnique({
-      where: { username },
+      where: { id: userId },
       select: {
         id: true,
         username: true,
@@ -18,9 +27,16 @@ export const getProfileByUsername = async (username, requestingUserId) => {
             id: true,
             content: true,
             createdAt: true,
-            images: { select: { imageUrl: true } },
+            updatedAt: true,
+            userId: true,
+            images: { select: { imageUrl: true, mediaType: true } },
             likes: { select: { userId: true } },
             comments: { select: { id: true } },
+            savedPosts: {
+              where: { userId: requestingUserId },
+              select: { id: true },
+            },
+            _count: { select: { likes: true, comments: true } },
           },
           orderBy: { createdAt: 'desc' },
         },
@@ -33,26 +49,63 @@ export const getProfileByUsername = async (username, requestingUserId) => {
     });
 
     if (!user) {
-      logger.warn('Profile not found', { username });
-      throw Object.assign(
-        new Error(PROFILE_CONSTANTS.ERROR_PROFILE_NOT_FOUND),
-        { status: 404 }
-      );
+      logger.warn('Profile not found', { userId });
+      throw Object.assign(new Error('Profile not found'), { status: 404 });
     }
 
-    const isFollowing = user.followers.some(
-      follow => follow.followerId === requestingUserId
-    );
+    logger.debug('Raw user data', { userId, followers: user.followers });
 
-    return {
-      ...user,
+    // Use the same query as the follow endpoint
+    const followExists = await prisma.follow.findUnique({
+      where: {
+        followerId_followingId: {
+          followerId: requestingUserId,
+          followingId: userId,
+        },
+      },
+      select: { followerId: true },
+    });
+
+    const isFollowing = !!followExists;
+    logger.debug('Computed isFollowing', {
+      userId,
+      requestingUserId,
       isFollowing,
-      followersCount: user._count.followers,
-      followingCount: user._count.following,
+    });
+
+    const formattedPosts = user.posts.map(post => ({
+      ...post,
+      author: {
+        id: user.id,
+        username: user.username,
+        avatarUrl: user.avatarUrl,
+      },
+      hasLiked: post.likes.some(like => like.userId === requestingUserId),
+      likesCount: post._count.likes,
+      commentsCount: post._count.comments,
+      isSaved: post.savedPosts.length > 0,
+      likes: undefined,
+      savedPosts: undefined,
+      _count: undefined,
+    }));
+
+    const profile = {
+      ...user,
+      posts: formattedPosts,
+      isFollowing,
+      followersCount: user._count.following,
+      followingCount: user._count.followers,
       postsCount: user._count.posts,
+      followers: undefined,
+      following: undefined,
+      _count: undefined,
     };
+
+    logger.debug('Returning profile', { userId, profile });
+
+    return profile;
   } catch (error) {
-    logger.error('Failed to fetch profile', { username, error: error.message });
+    logger.error('Failed to fetch profile', { userId, error: error.message });
     throw error;
   }
 };
@@ -252,13 +305,107 @@ export const unfollowUser = async (followerId, followingId) => {
     throw error;
   }
 };
-export const getFollowers = async (username, page, limit) => {
+
+export const getFollowers = async (id, requestingUserId, page, limit) => {
   try {
+    // Validate page and limit
+    const parsedPage = parseInt(page, 10);
+    const parsedLimit = parseInt(limit, 10);
+
+    if (isNaN(parsedPage) || parsedPage < 1) {
+      logger.warn('Invalid page value', { page });
+      throw Object.assign(new Error('Page must be a positive integer'), {
+        status: 400,
+      });
+    }
+
+    if (isNaN(parsedLimit) || parsedLimit < 1) {
+      logger.warn('Invalid limit value', { limit });
+      throw Object.assign(new Error('Limit must be a positive integer'), {
+        status: 400,
+      });
+    }
+
     const user = await prisma.user.findUnique({
-      where: { username },
+      where: { id },
       select: {
         id: true,
-        // Fetch users this user follows (user is followingId)
+        followers: {
+          select: {
+            following: {
+              select: {
+                id: true,
+                username: true,
+                avatarUrl: true,
+                followers: {
+                  // Nested followers relation to check if requesting user follows back
+                  select: {
+                    id: true,
+                  },
+                  where: {
+                    followerId: requestingUserId, // Correctly placed 'where' clause
+                  },
+                },
+              },
+            },
+          },
+          skip: (parsedPage - 1) * parsedLimit,
+          take: parsedLimit,
+        },
+        _count: {
+          select: { followers: true },
+        },
+      },
+    });
+
+    if (!user) {
+      logger.warn('Profile not found for followers', { id });
+      throw Object.assign(
+        new Error(PROFILE_CONSTANTS.ERROR_PROFILE_NOT_FOUND),
+        { status: 404 }
+      );
+    }
+
+    const followers = user.followers.map(follow => {
+      const follower = follow.following;
+      return {
+        ...follower,
+        isFollowing: follower.followers.some(
+          f => f.followerId === requestingUserId
+        ),
+        followers: undefined, // Clean up the followers field
+      };
+    });
+
+    logger.debug('Fetched followers data', { id, followers });
+
+    return {
+      followers,
+      pagination: {
+        total: user._count.followers,
+        page: parsedPage,
+        limit: parsedLimit,
+        totalPages: Math.ceil(user._count.followers / parsedLimit),
+      },
+    };
+  } catch (error) {
+    logger.error('Failed to fetch followers', {
+      id,
+      page,
+      limit,
+      error: error.message,
+    });
+    throw error;
+  }
+};
+
+export const getFollowing = async (id, page, limit) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        // Fetch users this user follows (user is followerId)
         following: {
           select: {
             follower: {
@@ -279,19 +426,19 @@ export const getFollowers = async (username, page, limit) => {
     });
 
     if (!user) {
-      logger.warn('Profile not found for followers', { username });
+      logger.warn('Profile not found for following', { id });
       throw Object.assign(
         new Error(PROFILE_CONSTANTS.ERROR_PROFILE_NOT_FOUND),
         { status: 404 }
       );
     }
 
-    const followers = user.following.map(follow => follow.follower);
+    const following = user.following.map(follow => follow.follower);
 
-    logger.debug('Fetched followers data', { username, followers });
+    logger.debug('Fetched following data', { id, following });
 
     return {
-      followers,
+      following,
       pagination: {
         total: user._count.following,
         page,
@@ -300,66 +447,8 @@ export const getFollowers = async (username, page, limit) => {
       },
     };
   } catch (error) {
-    logger.error('Failed to fetch followers', {
-      username,
-      page,
-      limit,
-      error: error.message,
-    });
-    throw error;
-  }
-};
-
-export const getFollowing = async (username, page, limit) => {
-  try {
-    const user = await prisma.user.findUnique({
-      where: { username },
-      select: {
-        id: true,
-        // Fetch users who follow this user (user is followerId)
-        followers: {
-          select: {
-            following: {
-              select: {
-                id: true,
-                username: true,
-                avatarUrl: true,
-              },
-            },
-          },
-          skip: (page - 1) * limit,
-          take: limit,
-        },
-        _count: {
-          select: { followers: true }, // Count of users who follow this user
-        },
-      },
-    });
-
-    if (!user) {
-      logger.warn('Profile not found for following', { username });
-      throw Object.assign(
-        new Error(PROFILE_CONSTANTS.ERROR_PROFILE_NOT_FOUND),
-        { status: 404 }
-      );
-    }
-
-    const following = user.followers.map(follow => follow.following);
-
-    logger.debug('Fetched following data', { username, following });
-
-    return {
-      following,
-      pagination: {
-        total: user._count.followers,
-        page,
-        limit,
-        totalPages: Math.ceil(user._count.followers / limit),
-      },
-    };
-  } catch (error) {
     logger.error('Failed to fetch following', {
-      username,
+      id,
       page,
       limit,
       error: error.message,
@@ -390,14 +479,12 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
     const users = await prisma.user.findMany({
       where: {
         OR: [
-          // Trim the username in the query to handle spaces
           {
             username: {
               contains: trimmedQuery,
               mode: 'insensitive',
             },
           },
-          // Trim the bio in the query to handle spaces
           {
             bio: {
               contains: trimmedQuery,
@@ -437,12 +524,21 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
       },
     });
 
-    const usersWithFollowStatus = users.map(user => ({
-      ...user,
-      isFollowing: user.following.some(
-        follow => follow.followerId === requestingUserId
-      ),
-    }));
+    const usersWithFollowStatus = users.map(user => {
+      // Check if the user is the requesting user
+      const isOwnProfile = user.id === requestingUserId;
+
+      return {
+        ...user,
+        // Set isFollowing to null if it's the requesting user, otherwise compute follow status
+        isFollowing: isOwnProfile
+          ? null
+          : user.following.some(
+              follow => follow.followerId === requestingUserId
+            ),
+        following: undefined, // Clean up the following field
+      };
+    });
 
     logger.info('User search completed', {
       query: trimmedQuery,

@@ -38,3 +38,19 @@ export const paginationSchema = [
     .withMessage(`Limit must be between 1 and ${POSTS_CONSTANTS.MAX_LIMIT}`)
     .toInt(),
 ];
+
+// Validation for replying to a comment (same as creating a comment, just reusing commentSchema)
+export const commentReplySchema = [
+  body('content')
+    .isLength({ min: 1, max: POSTS_CONSTANTS.MAX_COMMENT_LENGTH })
+    .withMessage(
+      `Comment must be between 1 and ${POSTS_CONSTANTS.MAX_COMMENT_LENGTH} characters`
+    )
+    .trim(),
+];
+
+// Validation for liking/unliking a comment (no body validation needed, just params)
+export const commentLikeSchema = [];
+
+// Validation for deleting a post (no body validation needed, just params)
+export const deletePostSchema = [];

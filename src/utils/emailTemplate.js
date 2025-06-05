@@ -13,6 +13,7 @@ export const generateEmailTemplate = ({
         <h2 style="color: ${EMAIL_CONSTANTS.STYLES.ACCENT_COLOR};">${title}</h2>
         <p>${message}</p>
         <div style="margin: 20px 0;">
+        <p>${actionUrl} </p>
           <a href="${actionUrl}" style="background-color: ${EMAIL_CONSTANTS.STYLES.ACCENT_COLOR}; color: ${EMAIL_CONSTANTS.STYLES.BUTTON_TEXT_COLOR}; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
             ${actionText}
           </a>

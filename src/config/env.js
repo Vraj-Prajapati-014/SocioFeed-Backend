@@ -36,6 +36,7 @@ const env = cleanEnv(
     CLOUDINARY_API_KEY: str({ desc: 'cloudinary API Key' }),
     CLOUDINARY_API_SECRET: str({ desc: 'cloudinary api secreat' }),
     CLOUDINARY_UPLOAD_PRESET: str({ desc: 'cloudinary upload preset' }),
+    SOCKET_PATH: str({ default: '/socket.io', desc: 'Socket.IO path' }),
   },
   {
     strict: true,

@@ -12,6 +12,10 @@ import {
   savePost,
   unsavePost,
   getSavedPosts,
+  replyToComment,
+  likeComment,
+  unlikeComment,
+  deletePost,
 } from '../controllers/postController.js';
 import { authMiddleware } from '../middleware/authMiddleware.js';
 import { validate } from '../middleware/validateMiddleware.js';
@@ -19,6 +23,9 @@ import {
   createPostSchema,
   commentSchema,
   paginationSchema,
+  commentReplySchema,
+  commentLikeSchema,
+  deletePostSchema,
 } from '../utils/postValidation.js';
 import { POSTS_CONSTANTS } from '../constants/postConstants.js';
 
@@ -77,6 +84,37 @@ router.delete(
   POSTS_CONSTANTS.POSTS_COMMENTS_DELETE,
   authMiddleware,
   deleteComment
+);
+
+// Reply to a comment
+router.post(
+  POSTS_CONSTANTS.POSTS_COMMENTS_REPLY,
+  authMiddleware,
+  validate(commentReplySchema),
+  replyToComment
+);
+
+// Like a comment
+router.post(
+  POSTS_CONSTANTS.POSTS_COMMENTS_LIKE,
+  authMiddleware,
+  validate(commentLikeSchema),
+  likeComment
+);
+
+// Unlike a comment
+router.delete(
+  POSTS_CONSTANTS.POSTS_COMMENTS_UNLIKE,
+  authMiddleware,
+  validate(commentLikeSchema),
+  unlikeComment
+);
+// Delete a post
+router.delete(
+  POSTS_CONSTANTS.POSTS_DELETE,
+  authMiddleware,
+  validate(deletePostSchema),
+  deletePost
 );
 
 router.post(POSTS_CONSTANTS.POSTS_SAVE, authMiddleware, savePost);

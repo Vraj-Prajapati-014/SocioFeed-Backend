@@ -15,7 +15,6 @@ export const createPost = async (req, res) => {
   }
 };
 
-// Get home feed (posts from followed users) with pagination
 export const getHomeFeed = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || POSTS_CONSTANTS.DEFAULT_PAGE;
@@ -46,12 +45,15 @@ export const getHomeFeed = async (req, res) => {
       },
     });
   } catch (error) {
-    logger.error(`Get home feed error: ${error.message}`);
-    res.status(500).json({ message: 'Failed to fetch home feed' });
+    logger.error(`Get home feed error: ${error.message}`, {
+      userId: req.user.id,
+    });
+    res
+      .status(500)
+      .json({ message: error.message || 'Failed to fetch home feed' });
   }
 };
 
-// Get post by ID with paginated comments
 export const getPostById = async (req, res) => {
   try {
     const { postId } = req.params;
@@ -69,6 +71,7 @@ export const getPostById = async (req, res) => {
     );
 
     if (!post) {
+      logger.warn('Post not found in controller', { postId });
       return res
         .status(404)
         .json({ message: POSTS_CONSTANTS.ERROR_POST_NOT_FOUND });
@@ -90,8 +93,11 @@ export const getPostById = async (req, res) => {
       },
     });
   } catch (error) {
-    logger.error(`Get post error: ${error.message}`);
-    res.status(500).json({ message: 'Failed to fetch post' });
+    logger.error(`Get post error: ${error.message}`, { userId: req.user.id });
+
+    const status =
+      error.message === POSTS_CONSTANTS.ERROR_POST_NOT_FOUND ? 404 : 500;
+    res.status(status).json({ message: error.message });
   }
 };
 
@@ -99,12 +105,13 @@ export const getPostById = async (req, res) => {
 export const likePost = async (req, res) => {
   try {
     const { postId } = req.params;
-    await postService.likePost(req.user.id, postId);
-    res.status(200).json({ message: 'Post liked' });
+    const result = await postService.likePost(req.user.id, postId);
+    res.status(200).json(result);
   } catch (error) {
-    logger.error(`Like post error: ${error.message}`);
+    logger.error(`Like post error: ${error.message}`, { userId: req.user.id });
     const status =
-      error.message === POSTS_CONSTANTS.ERROR_POST_NOT_FOUND ? 404 : 400;
+      error.status ||
+      (error.message === POSTS_CONSTANTS.ERROR_POST_NOT_FOUND ? 404 : 400);
     res.status(status).json({ message: error.message });
   }
 };
@@ -113,11 +120,14 @@ export const likePost = async (req, res) => {
 export const unlikePost = async (req, res) => {
   try {
     const { postId } = req.params;
-    await postService.unlikePost(req.user.id, postId);
-    res.status(200).json({ message: 'Post unliked' });
+    const result = await postService.unlikePost(req.user.id, postId);
+    res.status(200).json(result);
   } catch (error) {
-    logger.error(`Unlike post error: ${error.message}`);
-    res.status(400).json({ message: error.message });
+    logger.error(`Unlike post error: ${error.message}`, {
+      userId: req.user.id,
+    });
+    const status = error.status || 400;
+    res.status(status).json({ message: error.message });
   }
 };
 
@@ -238,5 +248,71 @@ export const getSavedPosts = async (req, res) => {
   } catch (error) {
     logger.error(`Get saved posts error: ${error.message}`);
     res.status(500).json({ message: 'Failed to fetch saved posts' });
+  }
+};
+
+// Reply to a comment
+export const replyToComment = async (req, res) => {
+  try {
+    const { postId, commentId } = req.params;
+    const { content } = req.body;
+    const comment = await postService.replyToComment(
+      req.user.id,
+      postId,
+      commentId,
+      content
+    );
+    res.status(201).json(comment);
+  } catch (error) {
+    logger.error(`Reply to comment error: ${error.message}`);
+    const status =
+      error.message === POSTS_CONSTANTS.ERROR_POST_NOT_FOUND ||
+      error.message === POSTS_CONSTANTS.ERROR_COMMENT_NOT_FOUND
+        ? 404
+        : 500;
+    res.status(status).json({ message: error.message });
+  }
+};
+
+// Like a comment
+export const likeComment = async (req, res) => {
+  try {
+    const { commentId } = req.params;
+    await postService.likeComment(req.user.id, commentId);
+    res.status(200).json({ message: 'Comment liked' });
+  } catch (error) {
+    logger.error(`Like comment error: ${error.message}`);
+    const status =
+      error.message === POSTS_CONSTANTS.ERROR_COMMENT_NOT_FOUND ? 404 : 400;
+    res.status(status).json({ message: error.message });
+  }
+};
+
+// Unlike a comment
+export const unlikeComment = async (req, res) => {
+  try {
+    const { commentId } = req.params;
+    await postService.unlikeComment(req.user.id, commentId);
+    res.status(200).json({ message: 'Comment unliked' });
+  } catch (error) {
+    logger.error(`Unlike comment error: ${error.message}`);
+    res.status(400).json({ message: error.message });
+  }
+};
+
+// Delete a post
+export const deletePost = async (req, res) => {
+  try {
+    const { postId } = req.params;
+    await postService.deletePost(req.user.id, postId);
+    res.status(200).json({ message: 'Post deleted successfully' });
+  } catch (error) {
+    logger.error(`Delete post error: ${error.message}`);
+    const status =
+      error.message === POSTS_CONSTANTS.ERROR_POST_NOT_FOUND ||
+      error.message === POSTS_CONSTANTS.ERROR_UNAUTHORIZED_POST_DELETE
+        ? 403
+        : 500;
+    res.status(status).json({ message: error.message });
   }
 };

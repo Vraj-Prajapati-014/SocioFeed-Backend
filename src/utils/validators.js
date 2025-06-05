@@ -1,6 +1,7 @@
-import { body, query } from 'express-validator';
+import { body, query, param } from 'express-validator';
 import { AUTH_CONSTANTS } from '../constants/auth.js';
 import { PROFILE_CONSTANTS } from '../constants/profileConstants.js';
+import { CHAT_CONSTANTS } from '../constants/chatConstants.js';
 
 export const registerSchema = [
   body('username')
@@ -127,5 +128,34 @@ export const searchSchema = [
     .optional()
     .isInt({ min: 1, max: PROFILE_CONSTANTS.MAX_LIMIT })
     .withMessage(`Limit must be between 1 and ${PROFILE_CONSTANTS.MAX_LIMIT}`)
+    .toInt(),
+];
+
+export const messageSchema = [
+  body('content')
+    .isLength({ min: 1, max: CHAT_CONSTANTS.MAX_MESSAGE_LENGTH })
+    .withMessage(
+      `Message must be between 1 and ${CHAT_CONSTANTS.MAX_MESSAGE_LENGTH} characters`
+    )
+    .notEmpty()
+    .withMessage('Message content is required')
+    .trim(),
+  param('userId')
+    .isUUID()
+    .withMessage('Invalid user ID')
+    .notEmpty()
+    .withMessage('Receiver ID is required'),
+];
+
+export const conversationSchema = [
+  query('page')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('Page must be a positive integer')
+    .toInt(),
+  query('limit')
+    .optional()
+    .isInt({ min: 1, max: CHAT_CONSTANTS.MAX_LIMIT })
+    .withMessage(`Limit must be between 1 and ${CHAT_CONSTANTS.MAX_LIMIT}`)
     .toInt(),
 ];

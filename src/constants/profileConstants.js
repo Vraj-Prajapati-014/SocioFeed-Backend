@@ -1,11 +1,11 @@
 const PROFILE_BASE_URL = '/profile';
-const PROFILE_BY_USERNAME = '/:username';
+const PROFILE_BY_USERNAME = '/:id';
 const PROFILE_UPDATE_INFO = '/update-info';
 const PROFILE_UPDATE_AVATAR = '/update-avatar';
 const PROFILE_FOLLOW = '/follow/:userId';
 const PROFILE_UNFOLLOW = '/unfollow/:userId';
-const PROFILE_FOLLOWERS = '/:username/followers';
-const PROFILE_FOLLOWING = '/:username/following';
+const PROFILE_FOLLOWERS = '/:id/followers';
+const PROFILE_FOLLOWING = '/:id/following';
 const PROFILE_SEARCH = '/search';
 
 // Error messages
