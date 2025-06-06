@@ -76,9 +76,9 @@ export const getProfileById = async (userId, requestingUserId) => {
     const formattedPosts = user.posts.map(post => ({
       ...post,
       author: {
-        id: user.id,
-        username: user.username,
-        avatarUrl: user.avatarUrl,
+        id: post.id,
+        username: post.username,
+        avatarUrl: post.avatarUrl,
       },
       hasLiked: post.likes.some(like => like.userId === requestingUserId),
       likesCount: post._count.likes,
@@ -93,8 +93,8 @@ export const getProfileById = async (userId, requestingUserId) => {
       ...user,
       posts: formattedPosts,
       isFollowing,
-      followersCount: user._count.following,
-      followingCount: user._count.followers,
+      followersCount: user._count.followers,
+      followingCount: user._count.following,
       postsCount: user._count.posts,
       followers: undefined,
       following: undefined,
@@ -192,7 +192,6 @@ export const updateUserAvatar = async (userId, file) => {
     throw error;
   }
 };
-
 export const followUser = async (followerId, followingId) => {
   try {
     if (followerId === followingId) {
@@ -242,6 +241,13 @@ export const followUser = async (followerId, followingId) => {
           select: { followers: true, following: true },
         },
       },
+    });
+
+    logger.debug('Updated counts after follow', {
+      followerId,
+      followingId,
+      followersCount: updatedCounts._count.followers,
+      followingCount: updatedCounts._count.following,
     });
 
     logger.info('User followed', { followerId, followingId });
@@ -305,10 +311,8 @@ export const unfollowUser = async (followerId, followingId) => {
     throw error;
   }
 };
-
 export const getFollowers = async (id, requestingUserId, page, limit) => {
   try {
-    // Validate page and limit
     const parsedPage = parseInt(page, 10);
     const parsedLimit = parseInt(limit, 10);
 
@@ -338,13 +342,8 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
                 username: true,
                 avatarUrl: true,
                 followers: {
-                  // Nested followers relation to check if requesting user follows back
-                  select: {
-                    id: true,
-                  },
-                  where: {
-                    followerId: requestingUserId, // Correctly placed 'where' clause
-                  },
+                  select: { id: true },
+                  where: { followerId: requestingUserId },
                 },
               },
             },
@@ -373,7 +372,7 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
         isFollowing: follower.followers.some(
           f => f.followerId === requestingUserId
         ),
-        followers: undefined, // Clean up the followers field
+        followers: undefined,
       };
     });
 
@@ -398,9 +397,26 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
     throw error;
   }
 };
-
 export const getFollowing = async (id, page, limit) => {
   try {
+    // Validate page and limit
+    const parsedPage = parseInt(page, 10);
+    const parsedLimit = parseInt(limit, 10);
+
+    if (isNaN(parsedPage) || parsedPage < 1) {
+      logger.warn('Invalid page value', { page });
+      throw Object.assign(new Error('Page must be a positive integer'), {
+        status: 400,
+      });
+    }
+
+    if (isNaN(parsedLimit) || parsedLimit < 1) {
+      logger.warn('Invalid limit value', { limit });
+      throw Object.assign(new Error('Limit must be a positive integer'), {
+        status: 400,
+      });
+    }
+
     const user = await prisma.user.findUnique({
       where: { id },
       select: {
@@ -416,8 +432,8 @@ export const getFollowing = async (id, page, limit) => {
               },
             },
           },
-          skip: (page - 1) * limit,
-          take: limit,
+          skip: (parsedPage - 1) * parsedLimit,
+          take: parsedLimit,
         },
         _count: {
           select: { following: true }, // Count of users this user follows
@@ -441,9 +457,9 @@ export const getFollowing = async (id, page, limit) => {
       following,
       pagination: {
         total: user._count.following,
-        page,
-        limit,
-        totalPages: Math.ceil(user._count.following / limit),
+        page: parsedPage,
+        limit: parsedLimit,
+        totalPages: Math.ceil(user._count.following / parsedLimit),
       },
     };
   } catch (error) {
