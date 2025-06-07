@@ -40,8 +40,8 @@ export const getProfileById = async (userId, requestingUserId) => {
           },
           orderBy: { createdAt: 'desc' },
         },
-        followers: { select: { followerId: true } },
-        following: { select: { followingId: true } },
+        followers: { select: { following: true } },
+        following: { select: { follower: true } },
         _count: {
           select: { followers: true, following: true, posts: true },
         },
@@ -58,11 +58,11 @@ export const getProfileById = async (userId, requestingUserId) => {
     const followExists = await prisma.follow.findUnique({
       where: {
         followerId_followingId: {
-          followerId: requestingUserId,
-          followingId: userId,
+          followerId: userId,
+          followingId: requestingUserId,
         },
       },
-      select: { followerId: true },
+      select: { followingId: true },
     });
 
     const isFollowing = !!followExists;
@@ -92,8 +92,8 @@ export const getProfileById = async (userId, requestingUserId) => {
       ...user,
       posts: formattedPosts,
       isFollowing,
-      followersCount: user._count.followers,
-      followingCount: user._count.following,
+      followersCount: user._count.following,
+      followingCount: user._count.followers,
       postsCount: user._count.posts,
       followers: undefined,
       following: undefined,
@@ -189,7 +189,6 @@ export const updateUserAvatar = async (userId, file) => {
     throw error;
   }
 };
-
 export const followUser = async (followerId, followingId) => {
   try {
     if (followerId === followingId) {
@@ -232,8 +231,19 @@ export const followUser = async (followerId, followingId) => {
       },
     });
 
-    const updatedCounts = await prisma.user.findUnique({
+    // Fetch counts for the following user (target user)
+    const followingUserCounts = await prisma.user.findUnique({
       where: { id: followingId },
+      select: {
+        _count: {
+          select: { followers: true, following: true },
+        },
+      },
+    });
+
+    // Fetch counts for the follower user (current user)
+    const followerUserCounts = await prisma.user.findUnique({
+      where: { id: followerId },
       select: {
         _count: {
           select: { followers: true, following: true },
@@ -244,15 +254,29 @@ export const followUser = async (followerId, followingId) => {
     logger.debug('Updated counts after follow', {
       followerId,
       followingId,
-      followersCount: updatedCounts._count.followers,
-      followingCount: updatedCounts._count.following,
+      follower: {
+        followersCount: followerUserCounts._count.followers,
+        followingCount: followerUserCounts._count.following,
+      },
+      following: {
+        followersCount: followingUserCounts._count.followers,
+        followingCount: followingUserCounts._count.following,
+      },
     });
 
     logger.info('User followed', { followerId, followingId });
     return {
       message: 'Followed successfully',
-      followersCount: updatedCounts._count.followers,
-      followingCount: updatedCounts._count.following,
+      followingUser: {
+        id: followingId,
+        followersCount: followingUserCounts._count.followers,
+        followingCount: followingUserCounts._count.following,
+      },
+      followerUser: {
+        id: followerId,
+        followersCount: followerUserCounts._count.followers,
+        followingCount: followerUserCounts._count.following,
+      },
     };
   } catch (error) {
     logger.error('Failed to follow user', {
@@ -285,7 +309,8 @@ export const unfollowUser = async (followerId, followingId) => {
       },
     });
 
-    const updatedCounts = await prisma.user.findUnique({
+    // Fetch counts for the following user (target user)
+    const followingUserCounts = await prisma.user.findUnique({
       where: { id: followingId },
       select: {
         _count: {
@@ -294,11 +319,42 @@ export const unfollowUser = async (followerId, followingId) => {
       },
     });
 
+    // Fetch counts for the follower user (current user)
+    const followerUserCounts = await prisma.user.findUnique({
+      where: { id: followerId },
+      select: {
+        _count: {
+          select: { followers: true, following: true },
+        },
+      },
+    });
+
+    logger.debug('Updated counts after unfollow', {
+      followerId,
+      followingId,
+      follower: {
+        followersCount: followerUserCounts._count.followers,
+        followingCount: followerUserCounts._count.following,
+      },
+      following: {
+        followersCount: followingUserCounts._count.followers,
+        followingCount: followingUserCounts._count.following,
+      },
+    });
+
     logger.info('User unfollowed', { followerId, followingId });
     return {
       message: 'Unfollowed successfully',
-      followersCount: updatedCounts._count.followers,
-      followingCount: updatedCounts._count.following,
+      followingUser: {
+        id: followingId,
+        followersCount: followingUserCounts._count.followers,
+        followingCount: followingUserCounts._count.following,
+      },
+      followerUser: {
+        id: followerId,
+        followersCount: followerUserCounts._count.followers,
+        followingCount: followerUserCounts._count.following,
+      },
     };
   } catch (error) {
     logger.error('Failed to unfollow user', {
@@ -309,7 +365,6 @@ export const unfollowUser = async (followerId, followingId) => {
     throw error;
   }
 };
-
 export const getFollowers = async (id, requestingUserId, page, limit) => {
   try {
     const parsedPage = parseInt(page, 10);
@@ -329,18 +384,28 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
       });
     }
 
+    if (!requestingUserId) {
+      logger.warn('Invalid requestingUserId', { id, requestingUserId });
+      throw Object.assign(new Error('Invalid requesting user ID'), {
+        status: 400,
+      });
+    }
+
     const user = await prisma.user.findUnique({
       where: { id },
       select: {
         id: true,
-        followers: {
+        following: {
+          // Query the 'following' relation to get followers
           select: {
             follower: {
+              // Select the 'follower' user (e.g., Manan for Princy)
               select: {
                 id: true,
                 username: true,
                 avatarUrl: true,
-                followers: {
+                following: {
+                  // To determine if requestingUserId follows this follower
                   select: { followerId: true },
                   where: { followerId: requestingUserId },
                 },
@@ -351,7 +416,7 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
           take: parsedLimit,
         },
         _count: {
-          select: { followers: true },
+          select: { following: true }, // Total followers = count of 'following' relation
         },
       },
     });
@@ -364,14 +429,14 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
       );
     }
 
-    const followers = user.followers.map(follow => {
+    const followers = user.following.map(follow => {
       const follower = follow.follower;
       return {
         ...follower,
-        isFollowing: follower.followers.some(
+        isFollowing: follower.following.some(
           f => f.followerId === requestingUserId
         ),
-        followers: undefined,
+        following: undefined,
       };
     });
 
@@ -380,10 +445,10 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
     return {
       followers,
       pagination: {
-        total: user._count.followers,
+        total: user._count.following, // Use _count.following for total followers
         page: parsedPage,
         limit: parsedLimit,
-        totalPages: Math.ceil(user._count.followers / parsedLimit),
+        totalPages: Math.ceil(user._count.following / parsedLimit),
       },
     };
   } catch (error) {
@@ -397,85 +462,59 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
   }
 };
 
-export const getFollowing = async (id, requestingUserId, page, limit) => {
+export const getFollowing = async (userId, page, limit) => {
   try {
-    const parsedPage = parseInt(page, 10);
-    const parsedLimit = parseInt(limit, 10);
-
-    if (isNaN(parsedPage) || parsedPage < 1) {
-      logger.warn('Invalid page value', { page });
-      throw Object.assign(new Error('Page must be a positive integer'), {
-        status: 400,
-      });
-    }
-
-    if (isNaN(parsedLimit) || parsedLimit < 1) {
-      logger.warn('Invalid limit value', { limit });
-      throw Object.assign(new Error('Limit must be a positive integer'), {
-        status: 400,
-      });
-    }
-
     const user = await prisma.user.findUnique({
-      where: { id },
+      where: { id: userId },
       select: {
         id: true,
-        following: {
+        // Fetch users who this user follows (user is followerId)
+        followers: {
           select: {
             following: {
               select: {
                 id: true,
                 username: true,
                 avatarUrl: true,
-                followers: {
-                  select: { followerId: true },
-                  where: { followerId: requestingUserId },
-                },
               },
             },
           },
-          skip: (parsedPage - 1) * parsedLimit,
-          take: parsedLimit,
+          skip: (page - 1) * limit,
+          take: limit,
         },
         _count: {
-          select: { following: true },
+          select: { followers: true }, // Count of users this user follows
         },
       },
     });
 
     if (!user) {
-      logger.warn('Profile not found for following', { id });
+      logger.warn('Profile not found for following', { userId });
       throw Object.assign(
         new Error(PROFILE_CONSTANTS.ERROR_PROFILE_NOT_FOUND),
         { status: 404 }
       );
     }
 
-    const following = user.following.map(follow => {
-      const followingUser = follow.following;
-      return {
-        ...followingUser,
-        isFollowing: followingUser.followers.some(
-          f => f.followerId === requestingUserId
-        ),
-        followers: undefined,
-      };
-    });
+    const following = user.followers.map(follow => ({
+      ...follow.following,
+      isFollowing: true, // Add isFollowing: true to always show MessageButton
+    }));
 
-    logger.debug('Fetched following data', { id, following });
+    logger.debug('Fetched following data', { userId, following });
 
     return {
       following,
       pagination: {
-        total: user._count.following,
-        page: parsedPage,
-        limit: parsedLimit,
-        totalPages: Math.ceil(user._count.following / parsedLimit),
+        total: user._count.followers,
+        page,
+        limit,
+        totalPages: Math.ceil(user._count.followers / limit),
       },
     };
   } catch (error) {
     logger.error('Failed to fetch following', {
-      id,
+      userId,
       page,
       limit,
       error: error.message,
