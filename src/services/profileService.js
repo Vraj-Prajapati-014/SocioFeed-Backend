@@ -76,9 +76,9 @@ export const getProfileById = async (userId, requestingUserId) => {
     const formattedPosts = user.posts.map(post => ({
       ...post,
       author: {
-        id: post.id,
-        username: post.username,
-        avatarUrl: post.avatarUrl,
+        id: user.id,
+        username: user.username,
+        avatarUrl: user.avatarUrl,
       },
       hasLiked: post.likes.some(like => like.userId === requestingUserId),
       likesCount: post._count.likes,

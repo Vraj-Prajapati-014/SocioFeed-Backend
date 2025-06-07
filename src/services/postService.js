@@ -41,43 +41,32 @@ export const createPost = async (userId, content, files) => {
 export const getHomeFeed = async (userId, page, limit) => {
   const skip = (page - 1) * limit;
 
-  // Get the IDs of users the logged-in user is following
   const following = await prisma.follow.findMany({
     where: { followerId: userId },
     select: { followingId: true },
   });
   const followingIds = following.map(f => f.followingId);
-
-  // Include the logged-in user's own posts by adding their ID to the list
   const userIdsToQuery = [...followingIds, userId];
 
-  // Count total posts from followed users (including the logged-in user)
   const totalPosts = await prisma.post.count({
-    where: {
-      userId: { in: userIdsToQuery },
-    },
+    where: { userId: { in: userIdsToQuery } },
   });
 
-  // Fetch posts with necessary relations
   const posts = await prisma.post.findMany({
-    where: {
-      userId: { in: userIdsToQuery },
-    },
+    where: { userId: { in: userIdsToQuery } },
     orderBy: { createdAt: 'desc' },
     skip,
     take: limit,
     include: {
       user: { select: { id: true, username: true, avatarUrl: true } },
-      // user: { select: { username: true, avatarUrl: true } },
       images: { select: { imageUrl: true, mediaType: true } },
-      likes: { select: { userId: true } }, // To compute hasLiked
+      likes: { select: { userId: true } },
       comments: { select: { id: true } },
       savedPosts: { where: { userId }, select: { id: true } },
-      _count: { select: { likes: true, comments: true } }, // To get likesCount and commentsCount
+      _count: { select: { likes: true, comments: true } },
     },
   });
 
-  // Map posts to include hasLiked, likesCount, and clean up response
   const formattedPosts = posts.map(post => {
     const hasLiked = post.likes.some(like => like.userId === userId);
     return {
@@ -85,23 +74,21 @@ export const getHomeFeed = async (userId, page, limit) => {
       hasLiked,
       likesCount: post._count.likes,
       commentsCount: post._count.comments,
-      isSaved: post.savedPosts.length > 0, // Add isSaved for consistency
-      likes: undefined, // Remove raw likes array
-      savedPosts: undefined, // Remove raw savedPosts array
-      _count: undefined, // Remove raw _count object
+      isSaved: post.savedPosts.length > 0,
+      likes: undefined,
+      savedPosts: undefined,
+      _count: undefined,
     };
   });
 
   return { posts: formattedPosts, totalPosts };
 };
 
-// Get post by ID with paginated comments
-// Get post by ID with paginated comments
 export const getPostById = async (postId, userId, page, limit) => {
   const skip = (page - 1) * limit;
 
   const totalComments = await prisma.comment.count({
-    where: { postId, parentId: null }, // Only count top-level comments
+    where: { postId, parentId: null },
   });
 
   const post = await prisma.post.findUnique({
@@ -111,7 +98,7 @@ export const getPostById = async (postId, userId, page, limit) => {
       images: true,
       likes: { select: { userId: true } },
       comments: {
-        where: { parentId: null }, // Fetch only top-level comments
+        where: { parentId: null },
         include: {
           user: { select: { username: true, avatarUrl: true } },
           commentLikes: { select: { userId: true } },
@@ -119,23 +106,24 @@ export const getPostById = async (postId, userId, page, limit) => {
             include: {
               user: { select: { username: true, avatarUrl: true } },
               commentLikes: { select: { userId: true } },
+              _count: { select: { commentLikes: true } },
               replies: {
                 include: {
                   user: { select: { username: true, avatarUrl: true } },
                   commentLikes: { select: { userId: true } },
+                  _count: { select: { commentLikes: true } },
                 },
               },
             },
           },
+          _count: { select: { commentLikes: true } },
         },
         orderBy: { createdAt: 'desc' },
         skip,
         take: limit,
       },
       savedPosts: { where: { userId }, select: { id: true } },
-      _count: {
-        select: { likes: true }, // Include the count of likes
-      },
+      _count: { select: { likes: true } },
     },
   });
 
@@ -144,26 +132,50 @@ export const getPostById = async (postId, userId, page, limit) => {
     throw new Error(POSTS_CONSTANTS.ERROR_POST_NOT_FOUND);
   }
 
-  // Compute hasLiked based on the logged-in user
   const hasLiked = post.likes.some(like => like.userId === userId);
 
-  // Prepare the post response with additional fields
-  const postResponse = {
+  const mapComment = comment => ({
+    ...comment,
+    hasLiked: comment.commentLikes.some(like => like.userId === userId),
+    likesCount: comment._count.commentLikes,
+    commentLikes: undefined,
+    _count: undefined,
+    replies: comment.replies.map(reply => ({
+      ...reply,
+      hasLiked: reply.commentLikes.some(like => like.userId === userId),
+      likesCount: reply._count?.commentLikes || 0,
+      commentLikes: undefined,
+      _count: undefined,
+      replies: reply.replies.map(nestedReply => ({
+        ...nestedReply,
+        hasLiked: nestedReply.commentLikes.some(like => like.userId === userId),
+        likesCount: nestedReply._count?.commentLikes || 0,
+        commentLikes: undefined,
+        _count: undefined,
+      })),
+    })),
+  });
+
+  const formattedPost = {
     ...post,
+    author: {
+      id: post.user.id,
+      username: post.user.username,
+      avatarUrl: post.user.avatarUrl,
+    },
     hasLiked,
-    likesCount: post._count.likes, // Total number of likes
-    isSaved: post.savedPosts.length > 0, // Add isSaved field for consistency
+    likesCount: post._count.likes,
+    isSaved: post.savedPosts.length > 0,
+    comments: post.comments.map(mapComment),
   };
 
-  // Remove fields that shouldn't be exposed to the client
-  delete postResponse.likes; // Remove raw likes array
-  delete postResponse.savedPosts; // Remove raw savedPosts array
-  delete postResponse._count; // Remove raw _count object
+  delete formattedPost.likes;
+  delete formattedPost.savedPosts;
+  delete formattedPost._count;
 
-  return { post: postResponse, totalComments };
+  return { post: formattedPost, totalComments };
 };
 
-// Like a post
 export const likePost = async (userId, postId) => {
   const post = await prisma.post.findUnique({ where: { id: postId } });
   if (!post) {
@@ -184,10 +196,7 @@ export const likePost = async (userId, postId) => {
   }
 
   await prisma.like.create({
-    data: {
-      userId,
-      postId,
-    },
+    data: { userId, postId },
   });
 
   await prisma.activity.create({
@@ -198,14 +207,9 @@ export const likePost = async (userId, postId) => {
     },
   });
 
-  // Fetch the updated likes count
   const updatedPost = await prisma.post.findUnique({
     where: { id: postId },
-    select: {
-      _count: {
-        select: { likes: true },
-      },
-    },
+    select: { _count: { select: { likes: true } } },
   });
 
   logger.info('Post liked successfully', { userId, postId });
@@ -217,7 +221,6 @@ export const likePost = async (userId, postId) => {
   };
 };
 
-// Unlike a post
 export const unlikePost = async (userId, postId) => {
   const like = await prisma.like.findUnique({
     where: { userId_postId: { userId, postId } },
@@ -233,14 +236,9 @@ export const unlikePost = async (userId, postId) => {
     where: { userId_postId: { userId, postId } },
   });
 
-  // Fetch the updated likes count
   const updatedPost = await prisma.post.findUnique({
     where: { id: postId },
-    select: {
-      _count: {
-        select: { likes: true },
-      },
-    },
+    select: { _count: { select: { likes: true } } },
   });
 
   logger.info('Post unliked successfully', { userId, postId });
@@ -252,7 +250,6 @@ export const unlikePost = async (userId, postId) => {
   };
 };
 
-// Create a comment
 export const createComment = async (userId, postId, content) => {
   const post = await prisma.post.findUnique({ where: { id: postId } });
   if (!post) {
@@ -260,14 +257,8 @@ export const createComment = async (userId, postId, content) => {
   }
 
   const comment = await prisma.comment.create({
-    data: {
-      content,
-      userId,
-      postId,
-    },
-    include: {
-      user: { select: { username: true, avatarUrl: true } },
-    },
+    data: { content, userId, postId },
+    include: { user: { select: { username: true, avatarUrl: true } } },
   });
 
   await prisma.activity.create({
@@ -282,7 +273,6 @@ export const createComment = async (userId, postId, content) => {
   return comment;
 };
 
-// Edit a comment
 export const editComment = async (userId, commentId, content) => {
   const comment = await prisma.comment.findUnique({ where: { id: commentId } });
   if (!comment) {
@@ -299,7 +289,6 @@ export const editComment = async (userId, commentId, content) => {
   });
 };
 
-// Delete a comment
 export const deleteComment = async (userId, commentId) => {
   const comment = await prisma.comment.findUnique({ where: { id: commentId } });
   if (!comment) {
@@ -312,7 +301,6 @@ export const deleteComment = async (userId, commentId) => {
   await prisma.comment.delete({ where: { id: commentId } });
 };
 
-// Save a post
 export const savePost = async (userId, postId) => {
   const post = await prisma.post.findUnique({ where: { id: postId } });
   if (!post) {
@@ -327,14 +315,12 @@ export const savePost = async (userId, postId) => {
   }
 
   await prisma.savedPost.create({
-    data: {
-      userId,
-      postId,
-    },
+    data: { userId, postId },
   });
+
+  return { message: 'Post saved successfully' };
 };
 
-// Unsave a post
 export const unsavePost = async (userId, postId) => {
   const savedPost = await prisma.savedPost.findUnique({
     where: { userId_postId: { userId, postId } },
@@ -346,9 +332,10 @@ export const unsavePost = async (userId, postId) => {
   await prisma.savedPost.delete({
     where: { userId_postId: { userId, postId } },
   });
+
+  return { message: 'Post unsaved successfully' };
 };
 
-// Get saved posts with pagination
 export const getSavedPosts = async (userId, page, limit) => {
   const skip = (page - 1) * limit;
 
@@ -378,7 +365,6 @@ export const getSavedPosts = async (userId, page, limit) => {
   return { formattedPosts, totalSavedPosts };
 };
 
-// Reply to a comment
 export const replyToComment = async (
   userId,
   postId,
@@ -398,12 +384,7 @@ export const replyToComment = async (
   }
 
   const comment = await prisma.comment.create({
-    data: {
-      content,
-      userId,
-      postId,
-      parentId: parentCommentId,
-    },
+    data: { content, userId, postId, parentId: parentCommentId },
     include: {
       user: { select: { username: true, avatarUrl: true } },
       parent: { select: { id: true, userId: true, content: true } },
@@ -422,25 +403,26 @@ export const replyToComment = async (
   return comment;
 };
 
-// Like a comment
 export const likeComment = async (userId, commentId) => {
   const comment = await prisma.comment.findUnique({ where: { id: commentId } });
   if (!comment) {
-    throw new Error(POSTS_CONSTANTS.ERROR_COMMENT_NOT_FOUND);
+    throw Object.assign(new Error(POSTS_CONSTANTS.ERROR_COMMENT_NOT_FOUND), {
+      status: 404,
+    });
   }
 
   const existingLike = await prisma.commentLike.findUnique({
     where: { userId_commentId: { userId, commentId } },
   });
   if (existingLike) {
-    throw new Error(POSTS_CONSTANTS.ERROR_ALREADY_LIKED_COMMENT);
+    throw Object.assign(
+      new Error(POSTS_CONSTANTS.ERROR_ALREADY_LIKED_COMMENT),
+      { status: 400 }
+    );
   }
 
   await prisma.commentLike.create({
-    data: {
-      userId,
-      commentId,
-    },
+    data: { userId, commentId },
   });
 
   await prisma.activity.create({
@@ -451,23 +433,45 @@ export const likeComment = async (userId, commentId) => {
       commentId,
     },
   });
+
+  const updatedComment = await prisma.comment.findUnique({
+    where: { id: commentId },
+    select: { _count: { select: { commentLikes: true } } },
+  });
+
+  return {
+    message: 'Comment liked successfully',
+    likesCount: updatedComment._count.commentLikes,
+    hasLiked: true,
+  };
 };
 
-// Unlike a comment
 export const unlikeComment = async (userId, commentId) => {
   const like = await prisma.commentLike.findUnique({
     where: { userId_commentId: { userId, commentId } },
   });
   if (!like) {
-    throw new Error(POSTS_CONSTANTS.ERROR_NOT_LIKED_COMMENT);
+    throw Object.assign(new Error(POSTS_CONSTANTS.ERROR_NOT_LIKED_COMMENT), {
+      status: 400,
+    });
   }
 
   await prisma.commentLike.delete({
     where: { userId_commentId: { userId, commentId } },
   });
+
+  const updatedComment = await prisma.comment.findUnique({
+    where: { id: commentId },
+    select: { _count: { select: { commentLikes: true } } },
+  });
+
+  return {
+    message: 'Comment unliked successfully',
+    likesCount: updatedComment._count.commentLikes,
+    hasLiked: false,
+  };
 };
 
-// Delete a post
 export const deletePost = async (userId, postId) => {
   const post = await prisma.post.findUnique({ where: { id: postId } });
   if (!post) {
@@ -477,9 +481,5 @@ export const deletePost = async (userId, postId) => {
     throw new Error(POSTS_CONSTANTS.ERROR_UNAUTHORIZED_POST_DELETE);
   }
 
-  await prisma.post.delete({
-    where: { id: postId },
-  });
-
-  // Note: Cascading deletes will remove related likes, comments, nested comments, images, saved posts, and activities
+  await prisma.post.delete({ where: { id: postId } });
 };
