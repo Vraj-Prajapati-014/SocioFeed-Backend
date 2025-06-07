@@ -300,25 +300,57 @@ export const deleteComment = async (userId, commentId) => {
 
   await prisma.comment.delete({ where: { id: commentId } });
 };
-
 export const savePost = async (userId, postId) => {
   const post = await prisma.post.findUnique({ where: { id: postId } });
   if (!post) {
-    throw new Error(POSTS_CONSTANTS.ERROR_POST_NOT_FOUND);
+    logger.warn('Post not found for saving', { postId, userId });
+    throw Object.assign(new Error(POSTS_CONSTANTS.ERROR_POST_NOT_FOUND), {
+      status: 404,
+    });
   }
 
   const existingSave = await prisma.savedPost.findUnique({
     where: { userId_postId: { userId, postId } },
   });
   if (existingSave) {
-    throw new Error(POSTS_CONSTANTS.ERROR_ALREADY_SAVED);
+    logger.warn('Post already saved', { userId, postId });
+    throw Object.assign(new Error(POSTS_CONSTANTS.ERROR_ALREADY_SAVED), {
+      status: 400,
+    });
   }
 
-  await prisma.savedPost.create({
+  const savedPost = await prisma.savedPost.create({
     data: { userId, postId },
   });
+  logger.info('Saved post created', {
+    userId,
+    postId,
+    savedPostId: savedPost.id,
+  });
 
-  return { message: 'Post saved successfully' };
+  // Fetch updated post to include isSaved
+  const updatedPost = await prisma.post.findUnique({
+    where: { id: postId },
+    include: {
+      savedPosts: { where: { userId }, select: { id: true } },
+      _count: { select: { likes: true, comments: true } },
+      user: { select: { username: true, avatarUrl: true } },
+      images: true,
+    },
+  });
+
+  return {
+    message: 'Post saved successfully',
+    isSaved: true,
+    post: {
+      ...updatedPost,
+      isSaved: updatedPost.savedPosts.length > 0,
+      likesCount: updatedPost._count.likes,
+      commentsCount: updatedPost._count.comments,
+      savedPosts: undefined,
+      _count: undefined,
+    },
+  };
 };
 
 export const unsavePost = async (userId, postId) => {
@@ -326,16 +358,42 @@ export const unsavePost = async (userId, postId) => {
     where: { userId_postId: { userId, postId } },
   });
   if (!savedPost) {
-    throw new Error(POSTS_CONSTANTS.ERROR_NOT_SAVED);
+    logger.warn('Post not saved', { userId, postId });
+    throw Object.assign(new Error(POSTS_CONSTANTS.ERROR_NOT_SAVED), {
+      status: 400,
+    });
   }
 
   await prisma.savedPost.delete({
     where: { userId_postId: { userId, postId } },
   });
 
-  return { message: 'Post unsaved successfully' };
-};
+  // Fetch updated post to include isSaved
+  const updatedPost = await prisma.post.findUnique({
+    where: { id: postId },
+    include: {
+      savedPosts: { where: { userId }, select: { id: true } },
+      _count: { select: { likes: true, comments: true } },
+      user: { select: { username: true, avatarUrl: true } },
+      images: true,
+    },
+  });
 
+  logger.info('Post unsaved successfully', { userId, postId });
+
+  return {
+    message: 'Post unsaved successfully',
+    isSaved: false,
+    post: {
+      ...updatedPost,
+      isSaved: updatedPost.savedPosts.length > 0,
+      likesCount: updatedPost._count.likes,
+      commentsCount: updatedPost._count.comments,
+      savedPosts: undefined,
+      _count: undefined,
+    },
+  };
+};
 export const getSavedPosts = async (userId, page, limit) => {
   const skip = (page - 1) * limit;
 
@@ -355,16 +413,37 @@ export const getSavedPosts = async (userId, page, limit) => {
           images: true,
           likes: { select: { userId: true } },
           comments: { select: { id: true } },
+          savedPosts: { where: { userId }, select: { id: true } },
+          _count: { select: { likes: true, comments: true } },
         },
       },
     },
   });
 
-  const formattedPosts = savedPosts.map(sp => sp.post);
+  const formattedPosts = savedPosts.map(sp => ({
+    ...sp.post,
+    hasLiked: sp.post.likes.some(like => like.userId === userId),
+    likesCount: sp.post._count.likes,
+    commentsCount: sp.post._count.comments,
+    isSaved: sp.post.savedPosts.length > 0,
+    author: sp.post.user,
+    likes: undefined,
+    savedPosts: undefined,
+    _count: undefined,
+  }));
 
-  return { formattedPosts, totalSavedPosts };
+  logger.info('Fetched saved posts', {
+    userId,
+    totalSavedPosts,
+    postsCount: formattedPosts.length,
+  });
+
+  return {
+    formattedPosts,
+    totalSavedPosts,
+    nextPage: totalSavedPosts > page * limit ? page + 1 : null,
+  };
 };
-
 export const replyToComment = async (
   userId,
   postId,

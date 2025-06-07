@@ -55,7 +55,6 @@ export const getProfileById = async (userId, requestingUserId) => {
 
     logger.debug('Raw user data', { userId, followers: user.followers });
 
-    // Use the same query as the follow endpoint
     const followExists = await prisma.follow.findUnique({
       where: {
         followerId_followingId: {
@@ -150,7 +149,6 @@ export const updateUserAvatar = async (userId, file) => {
       throw Object.assign(new Error('No file provided'), { status: 400 });
     }
 
-    // Upload the file to Cloudinary using a buffer
     const uploadResult = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
@@ -172,7 +170,6 @@ export const updateUserAvatar = async (userId, file) => {
     const avatarUrl = uploadResult.secure_url;
     logger.info('Avatar uploaded to Cloudinary', { userId, avatarUrl });
 
-    // Update the user's avatarUrl in the database
     const updatedUser = await prisma.user.update({
       where: { id: userId },
       data: { avatarUrl },
@@ -192,6 +189,7 @@ export const updateUserAvatar = async (userId, file) => {
     throw error;
   }
 };
+
 export const followUser = async (followerId, followingId) => {
   try {
     if (followerId === followingId) {
@@ -311,6 +309,7 @@ export const unfollowUser = async (followerId, followingId) => {
     throw error;
   }
 };
+
 export const getFollowers = async (id, requestingUserId, page, limit) => {
   try {
     const parsedPage = parseInt(page, 10);
@@ -336,13 +335,13 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
         id: true,
         followers: {
           select: {
-            following: {
+            follower: {
               select: {
                 id: true,
                 username: true,
                 avatarUrl: true,
                 followers: {
-                  select: { id: true },
+                  select: { followerId: true },
                   where: { followerId: requestingUserId },
                 },
               },
@@ -366,7 +365,7 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
     }
 
     const followers = user.followers.map(follow => {
-      const follower = follow.following;
+      const follower = follow.follower;
       return {
         ...follower,
         isFollowing: follower.followers.some(
@@ -397,9 +396,9 @@ export const getFollowers = async (id, requestingUserId, page, limit) => {
     throw error;
   }
 };
-export const getFollowing = async (id, page, limit) => {
+
+export const getFollowing = async (id, requestingUserId, page, limit) => {
   try {
-    // Validate page and limit
     const parsedPage = parseInt(page, 10);
     const parsedLimit = parseInt(limit, 10);
 
@@ -421,14 +420,17 @@ export const getFollowing = async (id, page, limit) => {
       where: { id },
       select: {
         id: true,
-        // Fetch users this user follows (user is followerId)
         following: {
           select: {
-            follower: {
+            following: {
               select: {
                 id: true,
                 username: true,
                 avatarUrl: true,
+                followers: {
+                  select: { followerId: true },
+                  where: { followerId: requestingUserId },
+                },
               },
             },
           },
@@ -436,7 +438,7 @@ export const getFollowing = async (id, page, limit) => {
           take: parsedLimit,
         },
         _count: {
-          select: { following: true }, // Count of users this user follows
+          select: { following: true },
         },
       },
     });
@@ -449,7 +451,16 @@ export const getFollowing = async (id, page, limit) => {
       );
     }
 
-    const following = user.following.map(follow => follow.follower);
+    const following = user.following.map(follow => {
+      const followingUser = follow.following;
+      return {
+        ...followingUser,
+        isFollowing: followingUser.followers.some(
+          f => f.followerId === requestingUserId
+        ),
+        followers: undefined,
+      };
+    });
 
     logger.debug('Fetched following data', { id, following });
 
@@ -482,7 +493,6 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
       throw Object.assign(new Error('Invalid search query'), { status: 400 });
     }
 
-    // Debug: Fetch all active users to see what data we're working with
     const allUsers = await prisma.user.findMany({
       where: { isActive: true },
       select: { id: true, username: true, bio: true, isActive: true },
@@ -541,18 +551,16 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
     });
 
     const usersWithFollowStatus = users.map(user => {
-      // Check if the user is the requesting user
       const isOwnProfile = user.id === requestingUserId;
 
       return {
         ...user,
-        // Set isFollowing to null if it's the requesting user, otherwise compute follow status
         isFollowing: isOwnProfile
           ? null
           : user.following.some(
               follow => follow.followerId === requestingUserId
             ),
-        following: undefined, // Clean up the following field
+        following: undefined,
       };
     });
 
