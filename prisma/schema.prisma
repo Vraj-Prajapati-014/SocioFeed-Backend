@@ -143,6 +143,7 @@ model Message {
   receiverId String   @db.Uuid
   receiver   User     @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
   createdAt  DateTime @default(now())
+  isDeleted  Boolean  @default(false)
   @@index([senderId])
   @@index([receiverId])
   @@index([createdAt])

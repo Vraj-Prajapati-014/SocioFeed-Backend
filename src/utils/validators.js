@@ -159,3 +159,11 @@ export const conversationSchema = [
     .withMessage(`Limit must be between 1 and ${CHAT_CONSTANTS.MAX_LIMIT}`)
     .toInt(),
 ];
+
+export const deleteMessageSchema = [
+  param('messageId')
+    .isUUID()
+    .withMessage('Invalid message ID')
+    .notEmpty()
+    .withMessage('Message ID is required'),
+];

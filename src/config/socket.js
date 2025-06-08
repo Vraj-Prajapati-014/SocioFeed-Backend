@@ -5,7 +5,7 @@ import env from './env.js';
 import { CHAT_CONSTANTS } from '../constants/chatConstants.js';
 import prisma from './database.js';
 
-const initializeSocket = server => {
+const initializeSocket = (server, app) => {
   const io = new Server(server, {
     path: env.SOCKET_PATH,
     cors: {
@@ -14,6 +14,9 @@ const initializeSocket = server => {
       credentials: true,
     },
   });
+
+  // Make io available to controllers
+  app.set('io', io);
 
   // Map to store userId to socketId
   const userSockets = new Map();
@@ -61,6 +64,22 @@ const initializeSocket = server => {
         if (userId === receiverId) {
           socket.emit('error', {
             message: CHAT_CONSTANTS.ERROR_CANNOT_MESSAGE_SELF,
+          });
+          return;
+        }
+
+        // Check if user follows the receiver
+        const follow = await prisma.follow.findUnique({
+          where: {
+            followerId_followingId: {
+              followerId: userId,
+              followingId: receiverId,
+            },
+          },
+        });
+        if (!follow) {
+          socket.emit('error', {
+            message: CHAT_CONSTANTS.ERROR_NOT_FOLLOWING,
           });
           return;
         }
@@ -116,6 +135,57 @@ const initializeSocket = server => {
         logger.error('Error sending message', { userId, error: error.message });
         socket.emit('error', {
           message: error.message || 'Failed to send message',
+        });
+      }
+    });
+
+    // Handle deleting a message
+    socket.on('deleteMessage', async ({ messageId }) => {
+      try {
+        const message = await prisma.message.findUnique({
+          where: { id: messageId },
+          include: {
+            sender: { select: { id: true } },
+            receiver: { select: { id: true } },
+          },
+        });
+
+        if (!message) {
+          socket.emit('error', {
+            message: CHAT_CONSTANTS.ERROR_MESSAGE_NOT_FOUND,
+          });
+          return;
+        }
+
+        if (message.sender.id !== userId) {
+          socket.emit('error', {
+            message: CHAT_CONSTANTS.ERROR_NOT_AUTHORIZED,
+          });
+          return;
+        }
+
+        // Soft delete the message
+        await prisma.message.update({
+          where: { id: messageId },
+          data: { isDeleted: true },
+        });
+
+        // Emit message deletion to both users
+        socket.emit('messageDeleted', { messageId });
+        const receiverSocketId = userSockets.get(message.receiver.id);
+        if (receiverSocketId) {
+          io.to(receiverSocketId).emit('messageDeleted', { messageId });
+        }
+
+        logger.info('Message deleted via WebSocket', { messageId, userId });
+      } catch (error) {
+        logger.error('Error deleting message via WebSocket', {
+          userId,
+          messageId,
+          error: error.message,
+        });
+        socket.emit('error', {
+          message: error.message || 'Failed to delete message',
         });
       }
     });

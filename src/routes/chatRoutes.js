@@ -5,9 +5,14 @@ import {
   getConversations,
   getMessages,
   createMessage,
+  deleteMessage,
 } from '../controllers/chatController.js';
 import { CHAT_CONSTANTS } from '../constants/chatConstants.js';
-import { conversationSchema, messageSchema } from '../utils/validators.js';
+import {
+  conversationSchema,
+  messageSchema,
+  deleteMessageSchema,
+} from '../utils/validators.js';
 
 const router = express.Router();
 
@@ -26,10 +31,17 @@ router.get(
 );
 
 router.post(
-  '/messages/:userId',
+  CHAT_CONSTANTS.CHAT_MESSAGE_CREATE + '/:userId',
   authMiddleware,
   validate(messageSchema),
   createMessage
+);
+
+router.delete(
+  CHAT_CONSTANTS.CHAT_MESSAGE_DELETE,
+  authMiddleware,
+  validate(deleteMessageSchema),
+  deleteMessage
 );
 
 export default router;

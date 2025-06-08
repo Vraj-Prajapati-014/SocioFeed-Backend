@@ -8,40 +8,39 @@ export const getConversations = async (userId, page, limit) => {
   const messages = await prisma.message.findMany({
     where: {
       OR: [{ senderId: userId }, { receiverId: userId }],
+      isDeleted: false,
     },
     select: {
       sender: { select: { id: true, username: true, avatarUrl: true } },
       receiver: { select: { id: true, username: true, avatarUrl: true } },
+      content: true,
       createdAt: true,
     },
     orderBy: { createdAt: 'desc' },
-    distinct: ['senderId', 'receiverId'],
-    skip,
-    take: limit,
   });
 
   // Extract unique conversation partners
-  const conversations = [];
-  const seenUserIds = new Set([userId]);
-
+  const conversationsMap = new Map();
   for (const msg of messages) {
     const otherUser = msg.sender.id === userId ? msg.receiver : msg.sender;
-    if (!seenUserIds.has(otherUser.id)) {
-      seenUserIds.add(otherUser.id);
-      conversations.push({
-        user: otherUser,
-        lastMessageAt: msg.createdAt,
+    if (!conversationsMap.has(otherUser.id)) {
+      conversationsMap.set(otherUser.id, {
+        user: {
+          id: otherUser.id,
+          username: otherUser.username,
+          avatarUrl: otherUser.avatarUrl || null,
+        },
+        lastMessage: msg.content,
+        lastMessageAt: msg.createdAt.toISOString(),
       });
     }
   }
 
-  // Count total conversations
-  const totalConversations = await prisma.message.count({
-    where: {
-      OR: [{ senderId: userId }, { receiverId: userId }],
-    },
-    distinct: ['senderId', 'receiverId'],
-  });
+  const allConversations = Array.from(conversationsMap.values());
+  const totalConversations = allConversations.length;
+
+  // Apply pagination
+  const conversations = allConversations.slice(skip, skip + limit);
 
   return { conversations, totalConversations };
 };
@@ -66,6 +65,7 @@ export const getMessages = async (userId, otherUserId, page, limit) => {
         { senderId: userId, receiverId: otherUserId },
         { senderId: otherUserId, receiverId: userId },
       ],
+      isDeleted: false,
     },
     include: {
       sender: { select: { id: true, username: true, avatarUrl: true } },
@@ -83,6 +83,7 @@ export const getMessages = async (userId, otherUserId, page, limit) => {
         { senderId: userId, receiverId: otherUserId },
         { senderId: otherUserId, receiverId: userId },
       ],
+      isDeleted: false,
     },
   });
 
@@ -90,6 +91,21 @@ export const getMessages = async (userId, otherUserId, page, limit) => {
 };
 
 export const createMessage = async (userId, receiverId, content) => {
+  // Check if user follows the receiver
+  const follow = await prisma.follow.findUnique({
+    where: {
+      followerId_followingId: {
+        followerId: userId,
+        followingId: receiverId,
+      },
+    },
+  });
+  if (!follow) {
+    throw Object.assign(new Error(CHAT_CONSTANTS.ERROR_NOT_FOLLOWING), {
+      status: 403,
+    });
+  }
+
   if (userId === receiverId) {
     throw Object.assign(new Error(CHAT_CONSTANTS.ERROR_CANNOT_MESSAGE_SELF), {
       status: 400,
@@ -123,6 +139,40 @@ export const createMessage = async (userId, receiverId, content) => {
       senderId: userId,
       receiverId,
     },
+    include: {
+      sender: { select: { id: true, username: true, avatarUrl: true } },
+      receiver: { select: { id: true, username: true, avatarUrl: true } },
+    },
+  });
+};
+
+export const deleteMessage = async (userId, messageId) => {
+  // Fetch the message
+  const message = await prisma.message.findUnique({
+    where: { id: messageId },
+    include: {
+      sender: { select: { id: true } },
+      receiver: { select: { id: true } },
+    },
+  });
+
+  if (!message) {
+    throw Object.assign(new Error(CHAT_CONSTANTS.ERROR_MESSAGE_NOT_FOUND), {
+      status: 404,
+    });
+  }
+
+  // Check if the user is the sender
+  if (message.sender.id !== userId) {
+    throw Object.assign(new Error(CHAT_CONSTANTS.ERROR_NOT_AUTHORIZED), {
+      status: 403,
+    });
+  }
+
+  // Soft delete the message
+  return prisma.message.update({
+    where: { id: messageId },
+    data: { isDeleted: true },
     include: {
       sender: { select: { id: true, username: true, avatarUrl: true } },
       receiver: { select: { id: true, username: true, avatarUrl: true } },

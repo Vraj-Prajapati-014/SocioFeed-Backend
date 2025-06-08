@@ -82,17 +82,47 @@ export const createMessage = async (req, res, next) => {
       content
     );
 
+    // Emit WebSocket event (assuming io is available globally or passed via app)
+    const io = req.app.get('io');
+    io.to(userId).emit('message', message);
+    io.to(receiverId).emit('message', message);
+
     logger.info('Message created via REST', {
       messageId: message.id,
       userId,
       receiverId,
     });
 
-    res.status(201).json(message);
+    res.status(201).json({ data: message });
   } catch (error) {
     logger.error('Error creating message', {
       userId: req.user.id,
       receiverId: req.params.userId,
+      error: error.message,
+    });
+    next(error);
+  }
+};
+
+export const deleteMessage = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const messageId = req.params.messageId;
+
+    const message = await chatService.deleteMessage(userId, messageId);
+
+    // Emit WebSocket event to notify both users
+    const io = req.app.get('io');
+    io.to(userId).emit('messageDeleted', { messageId });
+    io.to(message.receiver.id).emit('messageDeleted', { messageId });
+
+    logger.info('Message deleted', { messageId, userId });
+
+    res.status(200).json({ message: 'Message deleted successfully' });
+  } catch (error) {
+    logger.error('Error deleting message', {
+      userId: req.user.id,
+      messageId: req.params.messageId,
       error: error.message,
     });
     next(error);

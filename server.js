@@ -16,7 +16,7 @@ configureCloudinary();
 
 const app = express();
 const server = createServer(app);
-initializeSocket(server);
+initializeSocket(server, app);
 app.use(cookieParser());
 app.use(
   cors({
