@@ -58,8 +58,8 @@ export const getProfileById = async (userId, requestingUserId) => {
     const followExists = await prisma.follow.findUnique({
       where: {
         followerId_followingId: {
-          followerId: userId,
-          followingId: requestingUserId,
+          followerId: requestingUserId,
+          followingId: userId,
         },
       },
       select: { followingId: true },
@@ -522,7 +522,6 @@ export const getFollowing = async (userId, page, limit) => {
     throw error;
   }
 };
-
 export const searchUsers = async (query, requestingUserId, page, limit) => {
   try {
     const trimmedQuery = query.trim();
@@ -563,7 +562,16 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
         id: true,
         username: true,
         avatarUrl: true,
-        following: { select: { followerId: true } },
+        following: {
+          // Check if you follow them (followerId = requestingUserId, followingId = user.id)
+          select: { followerId: true },
+          where: { followerId: requestingUserId },
+        },
+        followers: {
+          // Check if they follow you (followerId = user.id, followingId = requestingUserId)
+          select: { followingId: true },
+          where: { followingId: requestingUserId },
+        },
       },
       skip: (page - 1) * limit,
       take: limit,
@@ -591,15 +599,19 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
 
     const usersWithFollowStatus = users.map(user => {
       const isOwnProfile = user.id === requestingUserId;
+      const isFollowing = user.following.some(
+        follow => follow.followerId === requestingUserId
+      );
+      const followsYou = user.followers.some(
+        follow => follow.followingId === requestingUserId
+      );
 
       return {
         ...user,
-        isFollowing: isOwnProfile
-          ? null
-          : user.following.some(
-              follow => follow.followerId === requestingUserId
-            ),
+        isFollowing: isOwnProfile ? null : isFollowing,
+        followsYou: isOwnProfile ? null : followsYou,
         following: undefined,
+        followers: undefined,
       };
     });
 
