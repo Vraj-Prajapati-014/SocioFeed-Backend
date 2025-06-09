@@ -10,7 +10,6 @@ export const errorMiddleware = (err, req, res, next) => {
   const message = err.message || ERROR_MESSAGES.SERVER_ERROR;
   const isProduction = env.NODE_ENV === 'production';
 
-  // Log error with request context
   logger.error('Request error', {
     message: err.message,
     status,
@@ -18,14 +17,14 @@ export const errorMiddleware = (err, req, res, next) => {
     url: req.url,
     userId: req.user?.id || 'unauthenticated',
     stack: isProduction ? undefined : err.stack,
-    action: err.action || undefined, // Hide stack in production
-  });
-
-  // Send response to client
-  res.status(status).json({
-    error: message,
     action: err.action || undefined,
   });
 
-  next(); // Pass to next middleware (optional, for compatibility)
+  res.status(status).json({
+    error: message,
+    field: err.field || undefined, // Include field if present
+    action: err.action || undefined,
+  });
+
+  next();
 };

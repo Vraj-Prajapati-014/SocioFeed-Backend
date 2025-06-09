@@ -4,22 +4,24 @@ import { CHAT_CONSTANTS } from '../constants/chatConstants.js';
 export const getConversations = async (userId, page, limit) => {
   const skip = (page - 1) * limit;
 
-  // Fetch messages involving the user
   const messages = await prisma.message.findMany({
     where: {
       OR: [{ senderId: userId }, { receiverId: userId }],
       isDeleted: false,
     },
     select: {
-      sender: { select: { id: true, username: true, avatarUrl: true } },
-      receiver: { select: { id: true, username: true, avatarUrl: true } },
+      sender: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
+      receiver: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
       content: true,
       createdAt: true,
     },
     orderBy: { createdAt: 'desc' },
   });
 
-  // Extract unique conversation partners
   const conversationsMap = new Map();
   for (const msg of messages) {
     const otherUser = msg.sender.id === userId ? msg.receiver : msg.sender;
@@ -29,6 +31,7 @@ export const getConversations = async (userId, page, limit) => {
           id: otherUser.id,
           username: otherUser.username,
           avatarUrl: otherUser.avatarUrl || null,
+          isOnline: otherUser.isOnline, // Include isOnline
         },
         lastMessage: msg.content,
         lastMessageAt: msg.createdAt.toISOString(),
@@ -39,7 +42,6 @@ export const getConversations = async (userId, page, limit) => {
   const allConversations = Array.from(conversationsMap.values());
   const totalConversations = allConversations.length;
 
-  // Apply pagination
   const conversations = allConversations.slice(skip, skip + limit);
 
   return { conversations, totalConversations };
@@ -48,7 +50,6 @@ export const getConversations = async (userId, page, limit) => {
 export const getMessages = async (userId, otherUserId, page, limit) => {
   const skip = (page - 1) * limit;
 
-  // Validate other user exists
   const otherUser = await prisma.user.findUnique({
     where: { id: otherUserId },
   });
@@ -58,7 +59,6 @@ export const getMessages = async (userId, otherUserId, page, limit) => {
     });
   }
 
-  // Fetch messages
   const messages = await prisma.message.findMany({
     where: {
       OR: [
@@ -68,15 +68,18 @@ export const getMessages = async (userId, otherUserId, page, limit) => {
       isDeleted: false,
     },
     include: {
-      sender: { select: { id: true, username: true, avatarUrl: true } },
-      receiver: { select: { id: true, username: true, avatarUrl: true } },
+      sender: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
+      receiver: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
     },
     orderBy: { createdAt: 'asc' },
     skip,
     take: limit,
   });
 
-  // Count total messages
   const totalMessages = await prisma.message.count({
     where: {
       OR: [
@@ -91,7 +94,6 @@ export const getMessages = async (userId, otherUserId, page, limit) => {
 };
 
 export const createMessage = async (userId, receiverId, content) => {
-  // Check if user follows the receiver
   const follow = await prisma.follow.findUnique({
     where: {
       followerId_followingId: {
@@ -112,7 +114,6 @@ export const createMessage = async (userId, receiverId, content) => {
     });
   }
 
-  // Validate receiver exists
   const receiver = await prisma.user.findUnique({ where: { id: receiverId } });
   if (!receiver) {
     throw Object.assign(new Error(CHAT_CONSTANTS.ERROR_USER_NOT_FOUND), {
@@ -120,7 +121,6 @@ export const createMessage = async (userId, receiverId, content) => {
     });
   }
 
-  // Validate content
   if (
     !content ||
     content.trim().length === 0 ||
@@ -132,7 +132,6 @@ export const createMessage = async (userId, receiverId, content) => {
     );
   }
 
-  // Create message
   return prisma.message.create({
     data: {
       content: content.trim(),
@@ -140,14 +139,17 @@ export const createMessage = async (userId, receiverId, content) => {
       receiverId,
     },
     include: {
-      sender: { select: { id: true, username: true, avatarUrl: true } },
-      receiver: { select: { id: true, username: true, avatarUrl: true } },
+      sender: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
+      receiver: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
     },
   });
 };
 
 export const deleteMessage = async (userId, messageId) => {
-  // Fetch the message
   const message = await prisma.message.findUnique({
     where: { id: messageId },
     include: {
@@ -162,20 +164,22 @@ export const deleteMessage = async (userId, messageId) => {
     });
   }
 
-  // Check if the user is the sender
   if (message.sender.id !== userId) {
     throw Object.assign(new Error(CHAT_CONSTANTS.ERROR_NOT_AUTHORIZED), {
       status: 403,
     });
   }
 
-  // Soft delete the message
   return prisma.message.update({
     where: { id: messageId },
     data: { isDeleted: true },
     include: {
-      sender: { select: { id: true, username: true, avatarUrl: true } },
-      receiver: { select: { id: true, username: true, avatarUrl: true } },
+      sender: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
+      receiver: {
+        select: { id: true, username: true, avatarUrl: true, isOnline: true },
+      },
     },
   });
 };

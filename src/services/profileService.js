@@ -42,6 +42,7 @@ export const getProfileById = async (userId, requestingUserId) => {
         },
         followers: { select: { following: true } },
         following: { select: { follower: true } },
+        isOnline: true,
         _count: {
           select: { followers: true, following: true, posts: true },
         },

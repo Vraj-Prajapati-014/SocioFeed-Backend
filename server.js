@@ -16,22 +16,25 @@ configureCloudinary();
 
 const app = express();
 const server = createServer(app);
+
+// Initialize Socket.IO with the HTTP server
 initializeSocket(server, app);
+
 app.use(cookieParser());
 app.use(
   cors({
-    origin: env.APP_URL || 'http://localhost:5173', // Use env variable
+    origin: env.APP_URL || 'http://localhost:5173',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'], // Expanded headers
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   })
 );
 app.use(express.json());
-// app.use(`/api/${PROFILE_CONSTANTS.PROFILE_BASE_URL}`, profileRoutes);
 app.use('/api', routes);
 
 app.use(errorMiddleware);
 
-app.listen(env.PORT, () => {
+// Use server.listen instead of app.listen to start the HTTP server with Socket.IO
+server.listen(env.PORT, () => {
   logger.info(`Server running on port ${env.PORT}`);
 });

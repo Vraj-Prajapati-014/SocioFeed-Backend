@@ -87,8 +87,9 @@ export const getHomeFeed = async (userId, page, limit) => {
 export const getPostById = async (postId, userId, page, limit) => {
   const skip = (page - 1) * limit;
 
+  // Count all comments (including nested replies) for the post
   const totalComments = await prisma.comment.count({
-    where: { postId, parentId: null },
+    where: { postId }, // Removed parentId: null to count all comments
   });
 
   const post = await prisma.post.findUnique({
@@ -167,6 +168,7 @@ export const getPostById = async (postId, userId, page, limit) => {
     likesCount: post._count.likes,
     isSaved: post.savedPosts.length > 0,
     comments: post.comments.map(mapComment),
+    totalComments, // Add totalComments to the formattedPost
   };
 
   delete formattedPost.likes;
