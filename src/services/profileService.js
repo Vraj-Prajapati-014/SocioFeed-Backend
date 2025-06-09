@@ -636,3 +636,88 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
     throw error;
   }
 };
+
+export const getSearchHistory = async (userId, limit = 10) => {
+  try {
+    const searchHistory = await prisma.searchHistory.findMany({
+      where: {
+        userId,
+      },
+      select: {
+        id: true,
+        searchedUser: {
+          select: {
+            id: true,
+            username: true,
+            avatarUrl: true,
+          },
+        },
+        createdAt: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+      take: limit,
+    });
+
+    const formattedHistory = searchHistory.map(entry => ({
+      id: entry.id,
+      user: entry.searchedUser,
+      createdAt: entry.createdAt,
+    }));
+
+    logger.info('Search history fetched', {
+      userId,
+      count: formattedHistory.length,
+    });
+    return formattedHistory;
+  } catch (error) {
+    logger.error('Failed to fetch search history', {
+      userId,
+      error: error.message,
+    });
+    throw error;
+  }
+};
+
+// Delete a specific search history entry
+export const deleteSearchHistoryEntry = async (userId, entryId) => {
+  try {
+    const searchEntry = await prisma.searchHistory.findUnique({
+      where: { id: entryId },
+    });
+
+    if (!searchEntry) {
+      logger.warn('Search history entry not found', { entryId });
+      throw Object.assign(
+        new Error(PROFILE_CONSTANTS.ERROR_SEARCH_HISTORY_NOT_FOUND),
+        { status: 404 }
+      );
+    }
+
+    if (searchEntry.userId !== userId) {
+      logger.warn('Unauthorized attempt to delete search history entry', {
+        userId,
+        entryId,
+      });
+      throw Object.assign(
+        new Error(PROFILE_CONSTANTS.ERROR_UNAUTHORIZED_DELETE),
+        { status: 403 }
+      );
+    }
+
+    await prisma.searchHistory.delete({
+      where: { id: entryId },
+    });
+
+    logger.info('Search history entry deleted', { userId, entryId });
+    return { message: 'Search history entry deleted successfully' };
+  } catch (error) {
+    logger.error('Failed to delete search history entry', {
+      userId,
+      entryId,
+      error: error.message,
+    });
+    throw error;
+  }
+};

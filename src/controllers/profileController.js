@@ -7,6 +7,8 @@ import {
   getFollowers,
   getFollowing,
   searchUsers,
+  getSearchHistory,
+  deleteSearchHistoryEntry,
 } from '../services/profileService.js';
 import prisma from '../config/database.js';
 import logger from '../config/logger.js';
@@ -172,6 +174,40 @@ export const search = async (req, res, next) => {
     logger.error('User search failed', {
       query: req.query.query,
       userId: req.user.id,
+      error: error.message,
+    });
+    next(error);
+  }
+};
+export const getUserSearchHistory = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const { limit } = req.query;
+    const limitNum = parseInt(limit, 10) || PROFILE_CONSTANTS.DEFAULT_LIMIT;
+
+    const searchHistory = await getSearchHistory(userId, limitNum);
+    res.status(200).json(searchHistory);
+  } catch (error) {
+    logger.error('Get search history failed', {
+      userId: req.user.id,
+      error: error.message,
+    });
+    next(error);
+  }
+};
+
+// Delete a specific search history entry
+export const deleteUserSearchHistoryEntry = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const { id } = req.params; // The search history entry ID
+
+    const result = await deleteSearchHistoryEntry(userId, id);
+    res.status(200).json(result);
+  } catch (error) {
+    logger.error('Delete search history entry failed', {
+      userId: req.user.id,
+      entryId: req.params.id,
       error: error.message,
     });
     next(error);

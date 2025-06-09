@@ -7,11 +7,26 @@ export const createPost = async (req, res) => {
   try {
     const { content } = req.body;
     const files = req.files || [];
+    logger.info('Received create post request', {
+      userId: req.user.id,
+      content,
+      fileCount: files.length,
+      fileDetails: files.map(file => ({
+        mimetype: file.mimetype,
+        size: file.size,
+      })),
+    });
     const post = await postService.createPost(req.user.id, content, files);
+    logger.info('Post created successfully', { postId: post.id });
     res.status(201).json(post);
   } catch (error) {
-    logger.error(`Create post error: ${error.message}`);
-    res.status(500).json({ message: 'Failed to create post' });
+    logger.error(`Create post error: ${error.message}`, {
+      stack: error.stack,
+      userId: req.user.id,
+    });
+    res
+      .status(500)
+      .json({ message: 'Failed to create post', error: error.message });
   }
 };
 

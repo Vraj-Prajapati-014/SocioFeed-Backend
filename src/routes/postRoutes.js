@@ -53,7 +53,6 @@ router.get(
   getPostById
 );
 
-// Protected routes with validation
 router.post(
   POSTS_CONSTANTS.POSTS_CREATE,
   authMiddleware,

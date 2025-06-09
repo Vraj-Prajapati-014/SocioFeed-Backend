@@ -7,6 +7,8 @@ const PROFILE_UNFOLLOW = '/unfollow/:userId';
 const PROFILE_FOLLOWERS = '/:id/followers';
 const PROFILE_FOLLOWING = '/:id/following';
 const PROFILE_SEARCH = '/search';
+const PROFILE_SEARCH_HISTORY = '/search-history';
+const PROFILE_DELETE_SEARCH_HISTORY = '/search-history/:id';
 
 // Error messages
 const ERROR_PROFILE_NOT_FOUND = 'Profile not found';
@@ -16,6 +18,9 @@ const ERROR_NOT_FOLLOWING = 'You are not following this user';
 const ERROR_CANNOT_FOLLOW_SELF = 'You cannot follow yourself';
 const ERROR_USER_NOT_FOUND = 'User not found';
 const ERROR_INVALID_SEARCH_QUERY = 'Invalid search query';
+const ERROR_SEARCH_HISTORY_NOT_FOUND = 'Search history entry not found';
+const ERROR_UNAUTHORIZED_DELETE =
+  'You are not authorized to delete this search history entry';
 
 // Validation
 const MAX_USERNAME_LENGTH = 50;
@@ -36,6 +41,8 @@ export const PROFILE_CONSTANTS = {
   PROFILE_FOLLOWERS,
   PROFILE_FOLLOWING,
   PROFILE_SEARCH,
+  PROFILE_SEARCH_HISTORY,
+  PROFILE_DELETE_SEARCH_HISTORY,
   ERROR_PROFILE_NOT_FOUND,
   ERROR_UNAUTHORIZED_EDIT,
   ERROR_ALREADY_FOLLOWING,
@@ -48,4 +55,6 @@ export const PROFILE_CONSTANTS = {
   DEFAULT_PAGE,
   DEFAULT_LIMIT,
   MAX_LIMIT,
+  ERROR_SEARCH_HISTORY_NOT_FOUND,
+  ERROR_UNAUTHORIZED_DELETE,
 };

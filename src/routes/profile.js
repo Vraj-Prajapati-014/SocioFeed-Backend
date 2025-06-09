@@ -9,6 +9,8 @@ import {
   getFollowersList,
   getFollowingList,
   search,
+  getUserSearchHistory,
+  deleteUserSearchHistoryEntry,
 } from '../controllers/profileController.js';
 import { authMiddleware } from '../middleware/authMiddleware.js';
 import { validate } from '../middleware/validateMiddleware.js';
@@ -46,6 +48,16 @@ router.get(
 
 // Dynamic route for profile
 router.get(PROFILE_CONSTANTS.PROFILE_BY_USERNAME, authMiddleware, getProfile);
+router.get(
+  PROFILE_CONSTANTS.PROFILE_SEARCH_HISTORY,
+  authMiddleware,
+  getUserSearchHistory
+);
+router.delete(
+  PROFILE_CONSTANTS.PROFILE_DELETE_SEARCH_HISTORY,
+  authMiddleware,
+  deleteUserSearchHistoryEntry
+);
 
 router.put(
   PROFILE_CONSTANTS.PROFILE_UPDATE_INFO,
