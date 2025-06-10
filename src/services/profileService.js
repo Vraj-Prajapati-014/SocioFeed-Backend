@@ -572,6 +572,7 @@ export const searchUsers = async (query, requestingUserId, page, limit) => {
         id: true,
         username: true,
         avatarUrl: true,
+        bio: true,
         following: {
           // Check if you follow them (followerId = requestingUserId, followingId = user.id)
           select: { followerId: true },
