@@ -65,6 +65,14 @@ export const getProfileById = async (userId, requestingUserId) => {
       },
       select: { followingId: true },
     });
+    const followsYou = await prisma.follow.findUnique({
+      where: {
+        followerId_followingId: {
+          followerId: userId,
+          followingId: requestingUserId,
+        },
+      },
+    });
 
     const isFollowing = !!followExists;
     logger.debug('Computed isFollowing', {
@@ -99,6 +107,7 @@ export const getProfileById = async (userId, requestingUserId) => {
       followers: undefined,
       following: undefined,
       _count: undefined,
+      followsYou: !!followsYou,
     };
 
     logger.debug('Returning profile', { userId, profile });
